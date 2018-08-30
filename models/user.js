@@ -39,7 +39,7 @@ module.exports = function(sequelize, DataTypes) {
     User.hasMany(models.Collabs, {
       onDelete: "cascade"
     });
-    User.hasMany(models.Skills, {
+    User.hasMany(models.Skill, {
       onDelete: "cascade"
     });
   };
