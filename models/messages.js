@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Post = sequelize.define("Post", {
+  var Messages = sequelize.define("Messages", {
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -14,12 +14,12 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
-  Post.associate = function(models) {
-    Post.belongsTo(models.User, {
+  Messages.associate = function(models) {
+    Messages.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
     });
   };
-  return Post;
+  return Messages;
 };
