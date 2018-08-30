@@ -1,3 +1,18 @@
-.list-group-item {
-  line-height: 2.5;
+/* COLORS
+    #7C7CF8 dark blue (navbar, primary elements)
+    #9497F0 intermediate blue (secondary elements such as buttons, jumbotrons, project cards)
+    #D7D6EB light blue (backgrounds)
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7
 }
