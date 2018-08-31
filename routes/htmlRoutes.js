@@ -47,7 +47,7 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(function(results) {
-      res.render("?", {
+      res.render("profile", {
         user: results
       });
     });
