@@ -1,0 +1,115 @@
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">Your Projects</a>
+    <a href="#">Project Hub</a>
+    <a href="#">Message Board</a>
+    <a href="#" class="button">Sign Out</a>
+</div>
+<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+
+<div id="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <img class="img-circle img-responsive" alt="" src="http://placehold.it/300x300">
+                <h1>{{user}}</h1>
+            </div>
+
+            <div class="col-xs-12 col-8">
+                <ul class="list-group">
+                    <li class="list-group-item">John Doe</li>
+                    <li class="list-group-item">Software Engineer</li>
+                    <li class="list-group-item">Google Inc. </li>
+                    <li class="list-group-item">
+                        <i class="fa fa-phone"></i> 000-000-0000 </li>
+                    <li class="list-group-item">
+                        <i class="fa fa-envelope"></i> john@example.com</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            Projects </div>
+        <div class="card-deck">
+            <div class="card">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content
+                        is a little bit longer.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card
+                        has even longer content than the first to show that equal height action.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            Language and Platform Skills
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <h2>Colored Progress Bars</h2>
+                <p>The contextual classes colors the progress bars:</p>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"
+                        style="width:40%">
+                        40% Complete (success)
+                    </div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                        50% Complete (info)
+                    </div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"
+                        style="width:60%">
+                        60% Complete (warning)
+                    </div>
+                </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"
+                        style="width:70%">
+                        70% Complete (danger)
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+        document.body.style.backgroundColor = "white";
+    }
+</script>
