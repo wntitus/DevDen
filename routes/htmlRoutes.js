@@ -8,11 +8,6 @@ module.exports = function(app) {
     res.render("index", { layout: "main" });
   });
 
-  //Sign Up Page
-  app.get("/signup", function(req, res) {
-    res.render("signup", { layout: "signup" });
-  });
-
   //Login Page
   app.get("/login", function(req, res) {
     res.render("?");
