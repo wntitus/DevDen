@@ -310,6 +310,12 @@ label {
 .sidenav {padding-top: 15px;}
 .sidenav a {font-size: 18px;}
 }
+@media (min-width: 576px){
+  .card-deck {margin-right: 5px;}
+
+}
+
+
 img {
   border-radius: 50%;
 }
@@ -321,16 +327,13 @@ img {
 }
 
 .list-group{
-  border-left-style: solid;
+  border-left-style: solid!important;
     border-width: 7px;
     border-radius: 13px;
     border-color: #818181;
 }
 .card-img-top{
   border-radius:0%!important;
-}
-.guru{
-  float: right!important;
 }
 
 /* Individual Profile View css ===============================================================================================*/
