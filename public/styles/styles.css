@@ -240,3 +240,16 @@ img {
 .guru{
   float: right!important;
 }
+
+/* Individual Profile View css ===============================================================================================*/
+.list-group {
+      border-left-style: none;
+}
+ img {
+   float: left;
+   margin: 0px 0px 0px 21px;
+ }
+ 
+ .team {
+   margin-bottom: 25px;
+ }

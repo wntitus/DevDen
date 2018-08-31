@@ -1,0 +1,154 @@
+<!--Side Nav Bar-->
+
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">Your Projects</a>
+    <a href="#">Project Hub</a>
+    <a href="#">Message Board</a>
+    <a href="#" class="button">Sign Out</a>
+</div>
+<span style="font-size:18px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+
+<div id="main">
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <!--MyProject Veiw List-->
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">API Project</h5>
+                        <small>3 Days Ago</small>
+                    </div>
+                    <small>{{user}}</small>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">CSS Project</h5>
+                        <small class="text-muted">5 days ago</small>
+                    </div>
+                    <small class="text-muted">{{user}}</small>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Handlebars Project</h5>
+                        <small class="text-muted">17 days ago</small>
+                    </div>
+                    <small class="text-muted">{{user}}</small>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">...</h5>
+                        <small class="text-muted">...</small>
+                    </div>
+                    <small class="text-muted">{{user}}</small>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">...</h5>
+                        <small class="text-muted">...</small>
+                    </div>
+                    <small class="text-muted">{{user}}</small>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">...</h5>
+                        <small class="text-muted">...</small>
+                    </div>
+                    <small class="text-muted">{{user}}</small>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">...</h5>
+                        <small class="text-muted">...</small>
+                    </div>
+                    <small class="text-muted">{{user}}</small>
+                </a>
+            </div>
+        </div>
+
+        <!--Team/Collaborators List-->
+        
+            <div class="col-md-7">
+                <div class="card">
+                    <div class="card-body">
+
+                        <!--Collab 1-->
+                        <img class="img-circle img-responsive" alt="" src="http://placehold.it/120x120">
+                        <h1>{{user}}</h1>
+
+                        <!--Collab 2-->
+                        <img class="img-circle img-responsive" alt="" src="http://placehold.it/120x120">
+                        <h1>{{user}}</h1>
+
+                        <!--Collab 3-->
+                        <img class="img-circle img-responsive" alt="" src="http://placehold.it/120x120">
+                        <h1>{{user}}</h1>
+
+                        <!--Collab 4-->
+                        <img class="img-circle img-responsive" alt="" src="http://placehold.it/120x120">
+                        <h1>{{user}}</h1>
+                    </div>
+                </div>
+                <br>
+
+
+                <!--About My Project-->
+                <div class="card">
+                    <h5 class="card-header">Project Info</h5>
+                    <div class="d-flex w-100 justify-content-between">
+                        <div class="card">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h3 class="mb-1">API Project</h3>
+                                        <small>3 Days Ago</small>
+                                    </div>
+                                    <p class="mb-1">There are many variations of passages of Lorem Ipsum available, but the majority have
+                                        suffered alteration in some form, by injected humour, or randomised words which don't
+                                        look even slightly believable. If you are going to use a passage of Lorem Ipsum,
+                                        you need to be sure there isn't anything embarrassing hidden in the middle of text.
+                                        All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as
+                                        necessary, making this the first true generator on the Internet. It uses a dictionary
+                                        of over 200 Latin words, combined with a handful of model sentence structures, to
+                                        generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore
+                                        always free from repetition, injected humour, or non-characteristic words etc.</p>
+                                    <small>{{user}}</small>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+        document.body.style.backgroundColor = "#D7D6EB";
+    }
+</script>
