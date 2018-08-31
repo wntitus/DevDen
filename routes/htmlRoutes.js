@@ -5,12 +5,7 @@ var db = require("../models");
 module.exports = function(app) {
   // Load Home page
   app.get("/", function(req, res) {
-    res.render("index");
-  });
-
-  //Sign Up Page
-  app.get("/signup", function(req, res) {
-    res.render("?");
+    res.render("index", { layout: "main" });
   });
 
   //Login Page

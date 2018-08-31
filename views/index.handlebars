@@ -1,10 +1,10 @@
-    <header>
+    <header class = 'index-head'>
         <div class = 'navbar-top'>
             <a href = '#' class = 'log-in-link'>Log In</a>
         </div>
 
         <div class = 'title-box'>
-            <h1 class = 'title-text'>Welcome to DevDen.</h1>
+            <h1 class = 'title-text'>Welcome to devDen.</h1>
             <h2 class = 'sub-text'>Collaboration made simple.</h2>
         </div>
     </header>
@@ -14,4 +14,25 @@
 
         <button type = 'button' class = 'project-view-button'>View Public Projects</button>
         <button type = 'button' class = 'signup-button'>Sign Up</button>
+    </div>
+
+
+    <div id = 'signup-modal' class = 'modal'>
+        <div class = 'modal-content'>
+            <div class = 'modal-header'>
+            <span class = 'close'>&times;</span>
+                <h2>Registration</h2>
+            </div>
+            <form>
+            <div class = 'modal-body'>
+                <label for = 'email'>Email</label><br>
+                    <input type = 'text' placeholder = 'Enter Your E-mail' name = 'email' class = 'register-input'required><br>
+                <label for = 'username'>Username</label><br>
+                    <input type = 'text' placeholder = 'Enter Username' name = 'username' class = 'register-input'required><br>
+                <label for = 'pwrd'>Password</label><br>
+                    <input type = 'password' placeholder = 'Enter Password' name = 'pwrd' class = 'register-input' id = 'password'required><br>
+                <button type = 'submit' class = 'register-button'>Register</button><br>
+            </div>
+            </form>
+        </div>
     </div>
