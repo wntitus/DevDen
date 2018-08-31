@@ -2,7 +2,7 @@ var bcrypt = require("bcrypt-nodejs");
 
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
-    userID: DataTypes.UUID,
+    // userID: DataTypes.UUID,
     email: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -39,7 +39,7 @@ module.exports = function(sequelize, DataTypes) {
     User.hasMany(models.Collabs, {
       onDelete: "cascade"
     });
-    User.hasMany(models.Skills, {
+    User.hasMany(models.Skill, {
       onDelete: "cascade"
     });
   };
