@@ -17,6 +17,10 @@ module.exports = function(sequelize, DataTypes) {
     },
     image: {
       type: DataTypes.BLOB
+    },
+    userName: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   });
   User.prototype.validatePassword = function(password) {

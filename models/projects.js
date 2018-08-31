@@ -7,10 +7,10 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    // owner: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false
-    // },
+    owner: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
     collabInvite: {
       type: DataTypes.STRING
     },
@@ -19,6 +19,9 @@ module.exports = function(sequelize, DataTypes) {
     },
     collaborators: {
       type: DataTypes.STRING
+    },
+    image: {
+      type: DataTypes.BLOB
     }
   });
   Project.associate = function(models) {

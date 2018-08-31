@@ -16,7 +16,8 @@ module.exports = function(app) {
   //Show Projects Page
   app.get("/projects", function(req, res) {
     db.Project.findAll().then(function(results) {
-      res.render("", {
+      console.log(results[0].dataValues);
+      res.render("publicProjects", {
         project: results
       });
     });
