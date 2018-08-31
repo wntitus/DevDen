@@ -5,12 +5,12 @@ var db = require("../models");
 module.exports = function(app) {
   // Load Home page
   app.get("/", function(req, res) {
-    res.render("index");
+    res.render("index", { layout: "main" });
   });
 
   //Sign Up Page
   app.get("/signup", function(req, res) {
-    res.render("?");
+    res.render("signup", { layout: "signup" });
   });
 
   //Login Page

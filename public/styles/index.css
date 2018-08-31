@@ -51,7 +51,7 @@ body {
   background-color: #D7D6EB;
 }
 
-header {
+.index-head {
   height: 55vh;
   background-color: #9497F0;
   position: relative;
@@ -116,54 +116,150 @@ h1, h2 {
   text-align: center;
 }
 
-.project-view-button {
+button {
   font-family: 'Helvetica Neue', sans-serif;
   border-radius: 0px;
-  width: 342px;
-  height: 105px;
-  margin-top: 55px;
-  margin-right: 55px;
   border: none;
-  font-size: 1.6875rem;
   background-color: #9497F0;
   color: white;
   box-shadow: 0px 8px 6px rgba(0,0,0,.16);
   cursor: pointer;
   -webkit-appearance: none;
+}
+
+.project-view-button {
+  width: 342px;
+  height: 105px;
+  margin-top: 55px;
+  margin-right: 55px;
+  font-size: 1.6875rem;
   animation: moveInBottom .5s ease-in-out 1s;
   animation-fill-mode: backwards;
 }
 
 .signup-button {
-  font-family: 'Helvetica Neue', sans-serif;
-  border-radius: 0px;
   width: 342px;
   height: 105px;
   margin-top: 55px;
-  border: none;
   font-size: 1.6875rem;
-  background-color: #9497F0;
-  color: white;
-  box-shadow: 0px 8px 6px rgba(0,0,0,.16);
-  cursor: pointer;
-  -webkit-appearance: none;
   animation: moveInBottom .5s ease-in-out 1s;
   animation-fill-mode: backwards;
 }
 
 .project-view-button:focus,
-.signup-button:focus {
+.signup-button:focus,
+.register-button:focus {
   outline: 0;
 }
 
 .project-view-button:hover,
-.signup-button:hover {
+.signup-button:hover,
+.register-button:hover {
   transform: translateY(-3px);
   box-shadow: 0px 8px 6px rgba(0,0,0,.25);
 }
 
 .project-view-button:active,
-.signup-button:active {
+.signup-button:active,
+.register-button:active {
   transform: translateY(-1px);
   box-shadow: 0px 8px 6px rgba(0,0,0,.19);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,.14);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  width: 80%;
+}
+
+.close {
+  color: black;
+  font-size: 28px;
+  font-weight: bold;
+  float: right;
+}
+
+.close:hover,
+.close:focus {
+  color: #7C7CF8;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #9497F0;
+  color: white;
+}
+
+.modal-body {
+  padding: 25px 16px;
+}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animateTop;
+  animation-duration: 0.4s;
+  text-align: center;
+}
+
+@keyframes animateTop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+
+  to {
+    top: 0px;
+    opacity: 1;
+  }
+}
+
+label {
+  font-size: 1.25rem;
+  font-weight: 450;
+}
+
+.register-input {
+  height: 30px;
+  font-size: 1.25rem;
+  width: 90%;
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+.register-button {
+  margin-top: 20px;
+  height: 45px;
+  width: 200px;
+  font-size: 1.25rem;
+}
+
+.not-valid {
+  color: red;
 }
