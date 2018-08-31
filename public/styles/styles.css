@@ -240,3 +240,6 @@ img {
 .guru{
   float: right!important;
 }
+.form-inline .form-control {  
+  margin-left:868!important;
+}

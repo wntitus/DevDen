@@ -56,7 +56,7 @@ module.exports = function(app) {
   //Show Messages Page
   app.get("/messages", function(req, res) {
     db.Messages.findAll().then(function(results) {
-      res.render("?", {
+      res.render("message-board", {
         messages: results
       });
     });
