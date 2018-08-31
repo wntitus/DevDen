@@ -255,14 +255,15 @@ label {
 
 .register-button {
   margin-top: 20px;
+  margin-bottom: 20px;
   height: 45px;
   width: 200px;
   font-size: 1.25rem;
 }
 
-.not-valid {
-  color: red;
-  
+.forgot-link {
+  text-decoration: none;
+}
 /* Profile css ===============================================================================================*/
 /* navbar */  
 
