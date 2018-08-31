@@ -168,11 +168,12 @@ h1, h2 {
   box-shadow: 0px 8px 6px rgba(0,0,0,.19);
 }
 
+/* Profile css ===============================================================================================*/
 /* navbar */
 body {
   font-family: "Lato", sans-serif;
   transition: background-color .5s;
-}
+}  
 
 .sidenav {
   height: 100%;
@@ -219,4 +220,23 @@ body {
 }
 img {
   border-radius: 50%;
+}
+
+.card-header{
+  text-align: center;
+  font-size: 24px;
+  background-color: #9497F0!important;
+}
+
+.list-group{
+  border-left-style: solid;
+    border-width: 7px;
+    border-radius: 13px;
+    border-color: #818181;
+}
+.card-img-top{
+  border-radius:0%!important;
+}
+.guru{
+  float: right!important;
 }
