@@ -22,7 +22,8 @@ module.exports = function(app) {
     db.Project.findAll().then(function(results) {
       console.log(results[0].dataValues);
       res.render("publicProjects", {
-        project: results
+        project: results,
+        layout: "bootstrap"
       });
     });
   });
@@ -34,9 +35,14 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(function(results) {
-      res.render("projectView", {
-        project: results
-      });
+      res.render(
+        "projectView",
+
+        {
+          project: results,
+          layout: "bootstrap"
+        }
+      );
     });
   });
 
@@ -48,7 +54,8 @@ module.exports = function(app) {
       }
     }).then(function(results) {
       res.render("profile", {
-        user: results
+        user: results,
+        layout: "bootstrap"
       });
     });
   });
@@ -57,7 +64,8 @@ module.exports = function(app) {
   app.get("/messages", function(req, res) {
     db.Messages.findAll().then(function(results) {
       res.render("?", {
-        messages: results
+        messages: results,
+        layout: "bootstrap"
       });
     });
 
