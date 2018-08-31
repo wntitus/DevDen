@@ -1,19 +1,26 @@
 $(document).ready(function() {
-  var modal = $("#signup-modal");
-  var btn = $(".signup-button");
+  var regModal = $("#signup-modal");
+  var logModal = $("#login-modal");
+  var regBtn = $(".signup-button");
+  var logLink = $(".log-in-link");
   var span = $(".close");
 
-  btn.on("click", function() {
-    modal.css("display", "block");
+  regBtn.on("click", function() {
+    regModal.css("display", "block");
+  });
+
+  logLink.on("click", function() {
+    logModal.css("display", "block");
   });
 
   span.on("click", function() {
-    modal.css("display", "none");
+    regModal.css("display", "none");
+    logModal.css("display", "none");
   });
 
   window.onclick = function(event) {
     if (event.target === modal) {
-      modal.css("display", "none");
+      regModal.css("display", "none");
     }
   };
 });
