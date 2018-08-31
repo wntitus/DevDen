@@ -19,7 +19,8 @@ module.exports = function(app) {
   });
 
   app.post("/api/projects", function(req, res) {
-    db.Project.create(req.body.projectName).then(function(result) {
+    console.log(req.body);
+    db.Project.create(req.body).then(function(result) {
       res.json(result);
     });
   });
