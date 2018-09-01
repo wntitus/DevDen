@@ -331,6 +331,8 @@ img {
     border-width: 7px;
     border-radius: 13px;
     border-color: #818181;
+    transform: translateY(-1px);
+  box-shadow: 0px 8px 6px rgba(0,0,0,.19);
 }
 .card-img-top{
   border-radius:0%!important;
@@ -348,3 +350,10 @@ img {
  .team {
    margin-bottom: 25px;
  }
+/* message-board=================================================================== */
+.nav{
+  background-color: #9497F0;
+}
+.navbar-brand{
+  font-size: 30px;
+}
