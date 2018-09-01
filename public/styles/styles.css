@@ -351,16 +351,43 @@ img {
    margin-bottom: 25px;
  }
 /* message-board=================================================================== */
-.nav{
-  background-color: #9497F0;
-}
-.navbar-brand{
-  font-size: 30px;
-}
-/* .panel-heading{
-  background-color: #9497F0;
-} */
+
 .card-body{
   transform: translateY(-1px);
   box-shadow: 0px 8px 6px rgba(0,0,0,.19);
+}
+.welcome-header{
+  text-align-last: left;
+}
+.topnav {
+  background-color: #9497F0;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color:black;
+}
+
+/* Add an active class to highlight the current page */
+.active {
+  background-color: #7C7CF8;
+  color: white;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
 }
