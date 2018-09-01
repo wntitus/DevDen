@@ -1,13 +1,5 @@
-<nav class="navbar navbar-light bg-light justify-content-between">
-    <a class="navbar-brand" href="#">
-        <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
-    </a>
-    <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
 </nav>
-<ul class="nav">
+<ul class="nav justify-content-between">
     <li class="nav-item">
         <div class="navbar-brand" href="#">devDen</div>
     </li>
@@ -23,16 +15,21 @@
     <li class="nav-item">
         <a class="nav-link" href="#">FAQ</a>
     </li>
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
 </ul>
+
+<br>
+
 <div class="container forum-content">
     <div class="row">
         <div class="col-md-8">
             <div class="forum-header">
                 <h1 class="welcome-header">Welcome</h1>
             </div>
-            <span class="alert alert-info" role="alert">
-                This is a simple hero unit, a simple jumbotron-style
-            </span>
+            <hr class="welcome -line">
             <h4 class="plain-text" style="margin-top:24px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
                 magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
                 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
@@ -41,55 +38,46 @@
             </h4>
         </div>
         <div class="col-md-4">
-            <!-- Featured panel -->
-            <div class="panel panel-info">
-                <div class="panel-heading">
-                    <h4>Featured Categories</h4>
+            <div class="card" style="width: 22rem;">
+                <div class="card-header">
+                    Featured Categories
                 </div>
-                <div class="panel-body">
-                    <div class="single category">
-                        <ul class="list-unstyled">
-                            <li>
-                                <a href="" title="">Javascript
-                                    <span class="pull-right">13</span>
-                                </a>
-                            </li>
-                            <a href="" title="">React
-                                <span class="pull-right">13</span>
-                            </a>
-                            <li>
-                                <a href="" title="">Angular
-                                    <span class="pull-right">13</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" title="">Ruby on Rails
-                                    <span class="pull-right">13</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" title="">Wordpress
-                                    <span class="pull-right">13</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" title="">Php
-                                    <span class="pull-right">13</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" title="">IOS
-                                    <span class="pull-right">13</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="" title="">Android
-                                    <span class="pull-right">13</span>
-                                </a>
-                            </li>
-                    </div>
-
-                </div>
-
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Javascript
+                        <span class="badge badge-primary badge-pill">14</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        React
+                        <span class="badge badge-primary badge-pill">2</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Ruby on Rails
+                        <span class="badge badge-primary badge-pill">1</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        C++
+                        <span class="badge badge-primary badge-pill">1</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Java
+                        <span class="badge badge-primary badge-pill">1</span>
+                    </li>
+                </ul>
             </div>
+            <br>
+            <div class="card" style="width: 22rem;">
+                <div class="card-header">
+                    NewsLetter
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                        dolore magna aliqua. Amet porttitor eget dolor morbi non. Semper quis lectus nulla at volutpat diam.</p>
+
+                </div>
+            </div>
+
         </div>
+
+    </div>
+</div>

@@ -327,7 +327,7 @@ img {
 }
 
 .list-group{
-  border-left-style: solid!important;
+  /* border-left-style: solid!important; */
     border-width: 7px;
     border-radius: 13px;
     border-color: #818181;
@@ -356,4 +356,11 @@ img {
 }
 .navbar-brand{
   font-size: 30px;
+}
+/* .panel-heading{
+  background-color: #9497F0;
+} */
+.card-body{
+  transform: translateY(-1px);
+  box-shadow: 0px 8px 6px rgba(0,0,0,.19);
 }
