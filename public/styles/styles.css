@@ -345,3 +345,32 @@ img {
  .team {
    margin-bottom: 25px;
  }
+
+ /* Public Projects View CSS =============================================================================================== */
+ #public-project-navbar-top {
+   height: 31.172px;
+ }
+
+ /* Image responsiveness wasn't working with bootstrap, not sure why. */
+ /* Manually set height and width to 100% to fill parent div, will need to be fixed */
+ .project img {
+   border-radius: 0;
+   margin: 0;
+   width: 100% !important;
+   height: 100% !important;
+ }
+
+ .project {
+  box-shadow: 0px 0px 1px 0px black;
+ }
+
+ .project-img {
+   height: 300px !important;
+   background-color: #868DE8 !important;
+   padding: 0;
+ }
+
+ .project-details {
+   height: 300px !important;
+   background-color: #fff !important
+ }
