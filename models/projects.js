@@ -26,6 +26,9 @@ module.exports = function(sequelize, DataTypes) {
     projectDescription: {
       type: DataTypes.TEXT
     }
+    // projectDescription: {
+    //   tyep: DataTypes.TEXT
+    // }
   });
   Project.associate = function(models) {
     Project.belongsTo(models.User, {

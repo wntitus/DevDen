@@ -35,11 +35,12 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(function(results) {
+      console.log(results.dataValues);
       res.render(
         "projectView",
 
         {
-          project: results,
+          project: results.dataValues,
           layout: "bootstrap"
         }
       );
