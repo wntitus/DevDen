@@ -1,21 +1,29 @@
-    <header>
-        <div class = 'navbar-top'>
-            <a href = '#' class = 'log-in-link'>Log In</a>
+    <header class="container-fluid">
+        <div class="row">
+          <div class = 'col-md-12 navbar-top' id="public-project-navbar-top">
+              <a href = '#' class = 'log-in-link'>Log In</a>
+          </div>
         </div>
     </header>
 
-    <div class="public-projects-body container">
-      <div class="row mt-5">
+    <div class="public-projects-body container-fluid">
+      <div class="row">
         {{#each project}}
-        <div class="col-md-6">
+        <div class="col-md-5 ml-auto mr-auto mt-5 project">
           <div class="row">
-            <div class="col-md-8" style="height: 300px; background-color: #868DE8">
-              <img src="{{image}}" alt="">
+            <div class="col-md-8 project-img">
+              <img class="img-fluid" src="{{image}}" alt="">
             </div>
-            <div class="col-md-4" style="height: 300px; background-color: #fff;">
+            <div class="col-md-4 project-details">
               {{> projects/project-info-block}}
             </div>
           </div>
         </div>
+        {{!-- {{#if id}}
+        <div class="col-md-2"></div>
+        {{/if}} --}}
         {{/each}}
     </div>
+  </div>
+
+  <footer class="container-fluid mt-5"></footer>
