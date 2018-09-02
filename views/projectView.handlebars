@@ -17,52 +17,52 @@
             <div class="list-group">
                 <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">API Project</h5>
-                        <small>{{createdAt}}</small>
+                        <h5 class="mb-1">{{project.projectName}}</h5>
+                        <small>{{project.createdAt}}</small>
                     </div>
-                    <small>{{user}}</small>
+                    <small>{{project.owner}}</small>
                 </a>
                 <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">CSS Project</h5>
-                        <small class="text-muted">5 days ago</small>
+                        <h5 class="mb-1">{{project.projectName}}</h5>
+                        <small class="text-muted">{{project.createdAt}}</small>
                     </div>
-                    <small class="text-muted">{{user}}</small>
+                    <small class="text-muted">{{project.owner}}</small>
                 </a>
                 <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Handlebars Project</h5>
-                        <small class="text-muted">17 days ago</small>
+                        <h5 class="mb-1">{{project.projectName}}</h5>
+                        <small class="text-muted">{{project.createdAt}}</small>
                     </div>
-                    <small class="text-muted">{{user}}</small>
+                    <small class="text-muted">{{project.owner}}</small>
                 </a>
                 <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">...</h5>
-                        <small class="text-muted">...</small>
+                        <h5 class="mb-1">{{project.projectName}}</h5>
+                        <small class="text-muted">{{project.createdAt}}</small>
                     </div>
-                    <small class="text-muted">{{user}}</small>
+                    <small class="text-muted">{{project.owner}}</small>
                 </a>
                 <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">...</h5>
-                        <small class="text-muted">...</small>
+                        <h5 class="mb-1">{{project.projectName}}</h5>
+                        <small class="text-muted">{{project.createdAt}}</small>
                     </div>
-                    <small class="text-muted">{{user}}</small>
+                    <small class="text-muted">{{project.owner}}</small>
                 </a>
                 <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">...</h5>
-                        <small class="text-muted">...</small>
+                        <h5 class="mb-1">{{project.projectName}}</h5>
+                        <small class="text-muted">{{project.createdAt}}</small>
                     </div>
-                    <small class="text-muted">{{user}}</small>
+                    <small class="text-muted">{{project.owner}}</small>
                 </a>
                 <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">...</h5>
-                        <small class="text-muted">...</small>
+                        <h5 class="mb-1">{{project.projectName}}</h5>
+                        <small class="text-muted">{{project.createdAt}}</small>
                     </div>
-                    <small class="text-muted">{{user}}</small>
+                    <small class="text-muted">{{project.owner}}</small>
                 </a>
             </div>
         </div>
@@ -72,22 +72,33 @@
             <div class="col-md-7">
                 <div class="card">
                     <div class="card-body">
+                        <div class="row">
 
                         <!--Collab 1-->
+                        <div class="col-sm-3">
                         <img class="img-circle img-responsive" alt="" src="http://placehold.it/120x120">
-                        <h1>{{user}}</h1>
+                        <h6>{{project.owner}}</h6>
+                        </div>
 
                         <!--Collab 2-->
-                        <img class="img-circle img-responsive" alt="" src="http://placehold.it/120x120">
-                        <h1>{{user}}</h1>
+                       <div class="col-sm-3">
+                            <img class="img-circle img-responsive" alt="" src="http://placehold.it/120x120">
+                            <h6>{{project.owner}}</h6>
+                       </div>
 
                         <!--Collab 3-->
-                        <img class="img-circle img-responsive" alt="" src="http://placehold.it/120x120">
-                        <h1>{{user}}</h1>
+                       <div class="col-sm-3">
+                            <img class="img-circle img-responsive" alt="" src="http://placehold.it/120x120">
+                            <h6>{{project.owner}}</h6>
+                       </div>
 
                         <!--Collab 4-->
-                        <img class="img-circle img-responsive" alt="" src="http://placehold.it/120x120">
-                        <h1>{{user}}</h1>
+                        <div class="col-sm-3">
+                            <img class="img-circle img-responsive" alt="" src="http://placehold.it/120x120">
+                            <h6>{{project.owner}}</h6>
+                        </div>
+
+                        </div>
                     </div>
                 </div>
                 <br>
@@ -101,8 +112,8 @@
                             <div class="list-group">
                                 <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="d-flex w-100 justify-content-between">
-                                        <h3 class="mb-1">API Project</h3>
-                                        <small>3 Days Ago</small>
+                                        <h3 class="mb-1">{{project.projectName}}</h3>
+                                        <small>{{project.createdAt}}</small>
                                     </div>
                                     <p class="mb-1">There are many variations of passages of Lorem Ipsum available, but the majority have
                                         suffered alteration in some form, by injected humour, or randomised words which don't
@@ -113,7 +124,7 @@
                                         of over 200 Latin words, combined with a handful of model sentence structures, to
                                         generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore
                                         always free from repetition, injected humour, or non-characteristic words etc.</p>
-                                    <small>{{user}}</small>
+                                    <small>{{project.owner}}</small>
                                 </a>
 
                             </div>

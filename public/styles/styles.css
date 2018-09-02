@@ -339,11 +339,15 @@ img {
 }
  img {
    float: left;
-   margin: 0px 0px 0px 21px;
+   margin: 0px 0px 0px 7px;
  }
  
  .team {
    margin-bottom: 25px;
+ }
+
+ h6 {
+   margin-left: 37px;
  }
 
  /* Public Projects View CSS =============================================================================================== */
