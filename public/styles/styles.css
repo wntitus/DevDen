@@ -344,12 +344,13 @@ img {
 }
  img {
    float: left;
-   margin: 0px 0px 0px 21px;
+   margin: 0px 0px 0px 7px;
  }
  
  .team {
    margin-bottom: 25px;
  }
+
 /* message-board=================================================================== */
 
 .card-body{
@@ -416,3 +417,37 @@ img {
   background: transparent;
   border-style: none;
 }
+
+ h6 {
+   margin-left: 37px;
+ }
+
+ /* Public Projects View CSS =============================================================================================== */
+ #public-project-navbar-top {
+   height: 31.172px;
+ }
+
+ /* Image responsiveness wasn't working with bootstrap, not sure why. */
+ /* Manually set height and width to 100% to fill parent div, will need to be fixed */
+ .project img {
+   border-radius: 0;
+   margin: 0;
+   width: 100% !important;
+   height: 100% !important;
+ }
+
+ .project {
+  box-shadow: 0px 0px 1px 0px black;
+ }
+
+ .project-img {
+   height: 300px !important;
+   background-color: #868DE8 !important;
+   padding: 0;
+ }
+
+ .project-details {
+   height: 300px !important;
+   background-color: #fff !important
+ }
+

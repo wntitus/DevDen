@@ -12,20 +12,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-4">
-                    <img class="img-circle img-responsive" alt="" src="http://placehold.it/280x280">
-                    <h1>{{user}}</h1>
+                    <img class="img-circle img-responsive" alt="" src="{{user.image}}" style="height: 280px; width: 280px;">
+                    <h2>{{user.userName}}</h2>
                 </div>
 
                 <div class="col-xs-12 col-8">
                     <ul class="list-group">
-                        <li class="list-group-item">John Doe</li>
+                        <li class="list-group-item">{{user.userName}}</li>
                         <li class="list-group-item">Software Engineer</li>
                         {{!--
                         <li class="list-group-item work place">Google Inc. </li> --}}
                         <li class="list-group-item ">
                             <i class="fa fa-phone"></i> 000-000-0000 </li>
                         <li class="list-group-item">
-                            <i class="fa fa-envelope "></i> john@example.com</li>
+                            <i class="fa fa-envelope "></i> {{user.email}}</li>
                     </ul>
                 </div>
             </div>
