@@ -12,7 +12,8 @@ module.exports = function(app) {
     db.Project.findOne({
       where: {
         id: req.params.id
-      }
+      },
+      include: [db.Collabs]
     }).then(function(result) {
       res.json(result);
     });
