@@ -27,6 +27,7 @@ require("./routes/projectRoutes")(app);
 require("./routes/skillRoutes")(app);
 require("./routes/userRoutes")(app);
 require("./routes/htmlRoutes")(app);
+require("./routes/collaboratorRoutes")(app);
 
 var syncOptions = { force: false };
 

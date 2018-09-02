@@ -33,7 +33,8 @@ module.exports = function(app) {
     db.Project.findOne({
       where: {
         id: req.params.id
-      }
+      },
+      include: [db.Collabs]
     }).then(function(results) {
       console.log(results.dataValues);
       res.render(
