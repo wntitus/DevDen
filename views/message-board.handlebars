@@ -1,0 +1,83 @@
+<h2 class="title">Message-board</h2>
+<div class="topnav" id="myTopnav">
+    <a href="#home" class="active">Home</a>
+    <a href="#news">News</a>
+    <a href="#contact">FAQ</a>
+    <a href="#about">About</a>
+    <button type="button" class="btn btn-light">New Discussion</button>
+
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>
+
+<br>
+
+<div class="container forum-content">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="forum-header">
+                <h1 class="welcome-header">Welcome</h1>
+            </div>
+            <hr class="welcome -line">
+            <div class="message-body">
+            <h4 class="plain-text" style="margin-top:24px;">sample text.
+            </h4>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card" style="width: 22rem;">
+                <div class="card-header">
+                    Featured Categories
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Javascript
+                        <span class="badge badge-primary badge-pill">200</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        React
+                        <span class="badge badge-primary badge-pill">346</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Ruby on Rails
+                        <span class="badge badge-primary badge-pill">15</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        C++
+                        <span class="badge badge-primary badge-pill">32</span>
+                    </li>
+
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Wordpress
+                        <span class="badge badge-primary badge-pill">56</span>
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <div class="card" style="width: 22rem;">
+                <div class="card-header">
+                    NewsLetter
+                </div>
+                <div class="card-body">
+                    <h6 class="event-title">divDen NewsLetter Events - September 2019</h3>
+                    <p class="card-text">Your monthly roundup of coding events in Orlando, Fl .</p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
