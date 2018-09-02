@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     image: {
-      type: DataTypes.BLOB
+      type: DataTypes.STRING
     },
     userName: {
       type: DataTypes.STRING,
