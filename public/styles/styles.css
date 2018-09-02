@@ -411,3 +411,8 @@ img {
     text-align: left;
   }
 }
+.btn-light{
+  margin-top: 9px;
+  background: transparent;
+  border-style: none;
+}
