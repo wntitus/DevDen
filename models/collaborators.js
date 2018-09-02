@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Collabs = sequelize.define("Collabs", {
+  var Collaborator = sequelize.define("Collaborator", {
     numOfCommits: {
       type: DataTypes.INTEGER,
       defaultValue: 0
@@ -8,12 +8,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER
     }
   });
-  Collabs.associate = function(models) {
-    Collabs.belongsTo(models.Project, {
+  Collaborator.associate = function(models) {
+    Collaborator.belongsTo(models.Project, {
       foreignKey: {
         allowNull: false
       }
     });
   };
-  return Collabs;
+  return Collaborator;
 };
