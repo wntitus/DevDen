@@ -32,15 +32,6 @@ module.exports = function(sequelize, DataTypes) {
       as: "projectCollaborator",
       foreignKey: "ProjectId"
     });
-    // Project.hasOne(models.User, {
-    //   as: "owner",
-    //   foreignKey: "owner"
-    // });
-    // Project.hasMany(models.User, {
-    //   onDelete: "cascade",
-    //   as: "collaborator",
-    //   foreignKey: "collaborator"
-    // });
   };
   return Project;
 };

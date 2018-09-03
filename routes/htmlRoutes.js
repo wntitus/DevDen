@@ -56,13 +56,13 @@ module.exports = function(app) {
         collaborators[i].name = results.projectCollaborator[i].User.userName;
         collaborators[i].img = results.projectCollaborator[i].User.image;
       }
-      console.log(collaborators);
+      // console.log(collaborators);
       res.render(
         "projectView",
 
         {
           project: results.dataValues,
-          collaborator: results.dataValues.Collaborators,
+          collaborator: collaborators,
           layout: "bootstrap"
         }
       );
