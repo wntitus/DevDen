@@ -10,7 +10,7 @@ var server = require("http").Server(app);
 var PORT = process.env.PORT || 3000;
 
 // socket.io Config=========================================================================================================================
-// io(<port>) will create a http server for me
+// io(<port>) will create a http server
 var io = require("socket.io")(server);
 
 io.on("connection", function(socket) {
@@ -36,11 +36,6 @@ io.on("connection", function(socket) {
       text: message.text,
       createdAt: new Date().getTime()
     });
-    // socket.broadcast.emit("newMessage", {
-    //   from: message.from,
-    //   text: message.text,
-    //   createdAt: new Date().getTime()
-    // });
   });
 
   socket.on("disconnect", function() {
