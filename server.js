@@ -10,17 +10,33 @@ var server = require("http").Server(app);
 var PORT = process.env.PORT || 3000;
 
 // socket.io Config=========================================================================================================================
+// io(<port>) will create a http server for me
 var io = require("socket.io")(server);
-io.on("connection", (socket) => {
-console.log("new user connected");
 
-socket.on("disconnect", () =>{
-  console.log("user disconnected");
-})
+io.on("connection", function(socket) {
+  console.log("new user connected");
+  socket.emit("newMessage", {
+    from: "John",
+    text: "hey whats up",
+    createdAt: 134
+  });
+  // event listener for create message
+  socket.on("createMessage", function(message) {
+    // making sure the event is going from client to server
+    console.log("createMessage", message);
+  });
+
+  socket.on("disconnect", function() {
+    console.log("user disconnected");
+  });
 });
 
 // Middleware==============================================================================================================================
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
@@ -39,7 +55,9 @@ require("./routes/skillRoutes")(app);
 require("./routes/userRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
-var syncOptions = { force: false };
+var syncOptions = {
+  force: false
+};
 
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`

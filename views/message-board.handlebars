@@ -64,9 +64,7 @@
 
                 </div>
             </div>
-
         </div>
-
     </div>
 </div>
 
@@ -82,13 +80,27 @@
 </script>
 <script src="/socket.io/socket.io.js"></script>
 <script>
+
     var socket = io.connect();
-    socket.on("connect", () =>{
+
+    socket.on("connect", function () {
         console.log("connected to server");
+
+       socket.emit("createMessage", {
+            from: "rocky",
+            text:"hey whats up",
+        });
     });
-   
-   socket.on("disconnect", () => {
-       console.log("disconnected from server");
-   });
+     {{!-- client side event listener for newMessage --}}
+    socket.on("newMessage", function (message) {
+        console.log("new message", message);
+    });
+
     
+
+    socket.on("disconnect", function () {
+        console.log("disconnected from server");
+    });
+    
+
 </script>
