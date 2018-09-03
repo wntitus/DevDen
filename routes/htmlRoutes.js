@@ -46,12 +46,17 @@ module.exports = function(app) {
         }
       ]
     }).then(function(results) {
-      console.log("Project Name: " + results.projectName);
-      console.log(results.get().projectCollaborator[0].User.get());
-      console.log(results.get().projectCollaborator[1].User.get());
-      // for (var i = 0; i < results.dataValues.Collaborators.length; i++) {
-      //   console.log(results.dataValues.Collaborators[i].dataValues);
-      // }
+      //Defining empty array to hold each collaborator
+      var collaborators = [];
+      //Looping through each collaborator
+      for (var i = 0; i < results.projectCollaborator.length; i++) {
+        //pushing an empty object on each iteration, used to store collaborator information
+        collaborators.push({});
+        //Setting name and image values to the collaborator object
+        collaborators[i].name = results.projectCollaborator[i].User.userName;
+        collaborators[i].img = results.projectCollaborator[i].User.image;
+      }
+      console.log(collaborators);
       res.render(
         "projectView",
 

@@ -45,9 +45,6 @@ module.exports = function(sequelize, DataTypes) {
     User.hasMany(models.Messages, {
       onDelete: "cascade"
     });
-    // User.hasMany(models.Collaborator, {
-    //   onDelete: "cascade"
-    // });
     User.hasMany(models.Skill, {
       onDelete: "cascade"
     });
