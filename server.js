@@ -9,8 +9,15 @@ var app = express();
 var server = require("http").Server(app);
 var PORT = process.env.PORT || 3000;
 
-// socket.io setup=========================================================================================================================
+// socket.io Config=========================================================================================================================
 var io = require("socket.io")(server);
+io.on("connection", (socket) => {
+console.log("new user connected");
+
+socket.on("disconnect", () =>{
+  console.log("user disconnected");
+})
+});
 
 // Middleware==============================================================================================================================
 app.use(bodyParser.urlencoded({ extended: false }));
