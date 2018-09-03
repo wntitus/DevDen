@@ -34,14 +34,35 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       },
-      include: [db.Collabs]
+      include: [
+        {
+          model: db.Collaborator,
+          as: "projectCollaborator",
+          include: [
+            {
+              model: db.User
+            }
+          ]
+        }
+      ]
     }).then(function(results) {
-      console.log(results.dataValues);
+      //Defining empty array to hold each collaborator
+      var collaborators = [];
+      //Looping through each collaborator
+      for (var i = 0; i < results.projectCollaborator.length; i++) {
+        //pushing an empty object on each iteration, used to store collaborator information
+        collaborators.push({});
+        //Setting name and image values to the collaborator object
+        collaborators[i].name = results.projectCollaborator[i].User.userName;
+        collaborators[i].img = results.projectCollaborator[i].User.image;
+      }
+      // console.log(collaborators);
       res.render(
         "projectView",
 
         {
           project: results.dataValues,
+          collaborator: collaborators,
           layout: "bootstrap"
         }
       );

@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   Collaborator.associate = function(models) {
-    Collaborator.belongsTo(models.Project, {
+    Collaborator.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
