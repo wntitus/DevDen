@@ -8,12 +8,12 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER
     }
   });
-  Collaborator.associate = function(models) {
-    Collaborator.belongsTo(models.Project, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-  };
+  // Collaborator.associate = function(models) {
+  //   Collaborator.belongsTo(models.Project, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
   return Collaborator;
 };

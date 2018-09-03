@@ -35,12 +35,12 @@ module.exports = function(sequelize, DataTypes) {
   });
   User.associate = function(models) {
     User.hasMany(models.Project, {
-      as: "collaborator",
-      foreignKey: "collaborator"
+      as: "collaboratorId",
+      foreignKey: "collaboratorId"
     });
     User.hasOne(models.Project, {
-      as: "owner",
-      foreignKey: "owner"
+      as: "ownerId",
+      foreignKey: "ownerId"
     });
     User.hasMany(models.Messages, {
       onDelete: "cascade"

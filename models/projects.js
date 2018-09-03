@@ -27,16 +27,20 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT
     }
   });
-  // Project.associate = function(models) {
-  //   Project.hasOne(models.User, {
-  //     as: "owner",
-  //     foreignKey: "owner"
-  //   });
-  //   Project.hasMany(models.User, {
-  //     onDelete: "cascade",
-  //     as: "collaborator",
-  //     foreignKey: "collaborator"
-  //   });
-  // };
+  Project.associate = function(models) {
+    Project.hasMany(models.Collaborator, {
+      as: "projectCollaborator",
+      foreignKey: "ProjectId"
+    });
+    // Project.hasOne(models.User, {
+    //   as: "owner",
+    //   foreignKey: "owner"
+    // });
+    // Project.hasMany(models.User, {
+    //   onDelete: "cascade",
+    //   as: "collaborator",
+    //   foreignKey: "collaborator"
+    // });
+  };
   return Project;
 };
