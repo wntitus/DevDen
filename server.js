@@ -15,7 +15,18 @@ var io = require("socket.io")(server);
 
 io.on("connection", function(socket) {
   console.log("new user connected");
-
+  // message from admin "welcome to the message board"
+  socket.emit("newMessage", {
+    from: "Admin",
+    text: "Welcome to devDen's Message Board",
+    createdAt: new Date().getTime()
+  });
+  // broadcast call will alert every user that a new user has joined except for the user who joined
+  socket.broadcast.emit("newMessage", {
+    from: "admin",
+    text: "new user joined",
+    createdAt: new Date().getTime()
+  });
   // event listener for create message=======================================================================================================================
   socket.on("createMessage", function(message) {
     // making sure the event is going from client to server
@@ -25,6 +36,11 @@ io.on("connection", function(socket) {
       text: message.text,
       createdAt: new Date().getTime()
     });
+    // socket.broadcast.emit("newMessage", {
+    //   from: message.from,
+    //   text: message.text,
+    //   createdAt: new Date().getTime()
+    // });
   });
 
   socket.on("disconnect", function() {
