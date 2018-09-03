@@ -15,15 +15,16 @@ var io = require("socket.io")(server);
 
 io.on("connection", function(socket) {
   console.log("new user connected");
-  socket.emit("newMessage", {
-    from: "John",
-    text: "hey whats up",
-    createdAt: 134
-  });
-  // event listener for create message
+
+  // event listener for create message=======================================================================================================================
   socket.on("createMessage", function(message) {
     // making sure the event is going from client to server
     console.log("createMessage", message);
+    io.emit("newMessage", {
+      from: message.from,
+      text: message.text,
+      createdAt: new Date().getTime()
+    });
   });
 
   socket.on("disconnect", function() {
