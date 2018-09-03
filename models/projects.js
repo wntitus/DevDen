@@ -7,10 +7,10 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    owner: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
+    // owner: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false
+    // },
     collabInvite: {
       type: DataTypes.STRING
     },
@@ -27,15 +27,16 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT
     }
   });
-  Project.associate = function(models) {
-    Project.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
-      }
-    });
-    Project.hasMany(models.Collaborator, {
-      onDelete: "cascade"
-    });
-  };
+  // Project.associate = function(models) {
+  //   Project.hasOne(models.User, {
+  //     as: "owner",
+  //     foreignKey: "owner"
+  //   });
+  //   Project.hasMany(models.User, {
+  //     onDelete: "cascade",
+  //     as: "collaborator",
+  //     foreignKey: "collaborator"
+  //   });
+  // };
   return Project;
 };

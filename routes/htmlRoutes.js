@@ -34,14 +34,17 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       },
-      include: [db.Collabs]
+      include: [db.Collaborator]
     }).then(function(results) {
-      console.log(results.dataValues);
+      for (var i = 0; i < results.dataValues.Collaborators.length; i++) {
+        console.log(results.dataValues.Collaborators[i].dataValues);
+      }
       res.render(
         "projectView",
 
         {
           project: results.dataValues,
+          collaborator: results.dataValues.Collaborators,
           layout: "bootstrap"
         }
       );

@@ -13,8 +13,9 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       },
-      include: [db.Collabs]
+      include: [db.Collaborator]
     }).then(function(result) {
+      console.log(result);
       res.json(result);
     });
   });
