@@ -34,9 +34,21 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       },
-      include: [{ model: db.Collaborator, as: "projectCollaborator" }]
+      include: [
+        {
+          model: db.Collaborator,
+          as: "projectCollaborator",
+          include: [
+            {
+              model: db.User
+            }
+          ]
+        }
+      ]
     }).then(function(results) {
-      console.log(results.projectCollaborator[0].get());
+      console.log("Project Name: " + results.projectName);
+      console.log(results.get().projectCollaborator[0].User.get());
+      console.log(results.get().projectCollaborator[1].User.get());
       // for (var i = 0; i < results.dataValues.Collaborators.length; i++) {
       //   console.log(results.dataValues.Collaborators[i].dataValues);
       // }
