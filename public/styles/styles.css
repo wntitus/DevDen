@@ -416,12 +416,15 @@ img {
   margin-top: 9px;
   background: transparent;
   border-style: none;
+  color: white;
 }
 
  h6 {
    margin-left: 37px;
  }
-
+ .badge-primary{
+   background-color: #7C7CF8;
+ }
  /* Public Projects View CSS =============================================================================================== */
  #public-project-navbar-top {
    height: 31.172px;
