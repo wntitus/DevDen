@@ -35,8 +35,8 @@ module.exports = function(sequelize, DataTypes) {
   });
   User.associate = function(models) {
     User.hasMany(models.Project, {
-      as: "collaborators",
-      foreignKey: "collaborators"
+      as: "collaborator",
+      foreignKey: "collaborator"
     });
     User.hasOne(models.Project, {
       as: "owner",
