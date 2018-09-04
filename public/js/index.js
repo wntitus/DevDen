@@ -1,24 +1,24 @@
-$(document).ready(function () {
+$(document).ready(function() {
   var regModal = $("#signup-modal");
   var logModal = $("#login-modal");
   var regBtn = $(".signup-button");
   var logLink = $(".log-in-link");
   var span = $(".close");
 
-  regBtn.on("click", function () {
+  regBtn.on("click", function() {
     regModal.css("display", "block");
   });
 
-  logLink.on("click", function () {
+  logLink.on("click", function() {
     logModal.css("display", "block");
   });
 
-  span.on("click", function () {
+  span.on("click", function() {
     regModal.css("display", "none");
     logModal.css("display", "none");
   });
 
-  window.onclick = function (event) {
+  window.onclick = function(event) {
     if (event.target === modal) {
       regModal.css("display", "none");
     }
@@ -26,11 +26,10 @@ $(document).ready(function () {
 
   var socket = io.connect();
 
-  socket.on("connect", function () {
+  socket.on("connect", function() {
     console.log("connected to server");
-
   });
-  socket.on("newMessage", function (message) {
+  socket.on("newMessage", function(message) {
     console.log("new message", message);
     var li = $("<li></li>");
     li.text(`${message.from}: ${message.text}`);
@@ -44,21 +43,21 @@ $(document).ready(function () {
   //   li.append(anchor); $("#forum-messages").append(li);
   // });
 
-  socket.on("disconnect", function () {
+  socket.on("disconnect", function() {
     console.log("disconnected from server");
   });
 
-  $("#message-form").on("submit", function (event) {
+  $("#message-form").on("submit", function(event) {
     event.preventDefault();
     socket.emit("createMessage", {
       from: "user",
       text: $("[name=message]").val()
-    }, function () {});
+    });
   });
   var locationBtn = $("#send-location");
-  locationBtn.on("click", function () {
+  locationBtn.on("click", function() {
     if (!navigator.geolocation) {
-      return alert("Geolcation not supported by your browser.")
+      return alert("Geolcation not supported by your browser.");
     }
 
     // navigator.geolocation.getCurrentPosition(function (position) {
@@ -69,5 +68,5 @@ $(document).ready(function () {
     // }, function () {
     //   alert("Unable to get location");
     // });
-  })
+  });
 });
