@@ -4,7 +4,10 @@ var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 
 var db = require("./models");
+
 var generateMessage = require("./public/js/message");
+// var generateLocationMessage = require("./public/js/message");
+
 var app = express();
 var server = require("http").Server(app);
 var PORT = process.env.PORT || 3000;
@@ -32,7 +35,13 @@ io.on("connection", function(socket) {
     io.emit("newMessage", generateMessage(message.from, message.text));
     callback("this from the server");
   });
-
+  // server side listener for sending Geolocation
+  // socket.on("createLocationMessage", function(coords) {
+  //   io.emit(
+  //     "newLocationMessage",
+  //     generateLocationMessage("Admin", coords.lat, coords.long)
+  //   );
+  // });
   socket.on("disconnect", function() {
     console.log("user disconnected");
   });
