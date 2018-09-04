@@ -53,7 +53,9 @@ $(document).ready(function () {
     socket.emit("createMessage", {
       from: "user",
       text: $("[name=message]").val()
-    }, function () {});
+    }, function () {
+      $("[name=message]").val("")
+    });
   });
   // var locationBtn = $("#send-location");
   // locationBtn.on("click", function () {
