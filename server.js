@@ -26,10 +26,11 @@ io.on("connection", function(socket) {
     generateMessage("Admin", "New user joined")
   );
   // event listener for create message=======================================================================================================================
-  socket.on("createMessage", function(message) {
+  socket.on("createMessage", function(message, callback) {
     // making sure the event is going from client to server
     console.log("createMessage", message);
     io.emit("newMessage", generateMessage(message.from, message.text));
+    callback("this from the server");
   });
 
   socket.on("disconnect", function() {

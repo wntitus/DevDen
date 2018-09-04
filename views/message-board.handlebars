@@ -21,6 +21,14 @@
             </div>
             <hr class="welcome -line">
             <div class="message-body">
+                <ol id="forum-messages"></ol>
+                    <br>
+                    <br>
+                    <form id="message-form">
+                        <input name="message" type="text" placeholder="Message" />
+                        <button class="btn btn-primary" type="submit">Send</button>
+
+                    </form>
 
             </div>
         </div>
@@ -87,15 +95,24 @@
         console.log("connected to server");
 
     });
-     {{!-- client side event listener for newMessage --}}
     socket.on("newMessage", function (message) {
         console.log("new message", message);
+        var li = $("<li></li>");
+        li.text(`${message.from}: ${message.text}`);
+        $("#forum-messages").append(li);
     });
 
-    
+
     socket.on("disconnect", function () {
         console.log("disconnected from server");
     });
-    
 
+    $("#message-form").on("submit", function (event) {
+        event.preventDefault();
+        socket.emit("createMessage", {
+            from: "user",
+            text: $("[name=message]").val()
+        }, function () {
+        });
+    });
 </script>
