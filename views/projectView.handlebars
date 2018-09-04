@@ -13,8 +13,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-5">
+            <div class="card">
+                <div class="card-body">
+                    <img src="{{project.image}}" alt="" style="width: 100%; height: auto; border-radius: 0;">
+                </div>
+            </div>
             <!--MyProject Veiw List-->
-            <div class="list-group">
+            {{!-- <div class="list-group">
                 <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">{{project.projectName}}</h5>
@@ -64,7 +69,7 @@
                     </div>
                     <small class="text-muted">{{project.owner}}</small>
                 </a>
-            </div>
+            </div> --}}
         </div>
 
         <!--Team/Collaborators List-->
@@ -96,9 +101,8 @@
                                         <small>{{project.createdAt}}</small>
                                     </div>
                                     <p class="mb-1">{{project.projectDescription}}</p>
-                                    <small>{{project.owner}}</small>
+                                    <small>This project is owned by <a class="inherit-color" href="/user/{{owner.id}}">{{owner.userName}}</a></small>
                                 </div>
-
                             </div>
                         </div>
                     </div>
