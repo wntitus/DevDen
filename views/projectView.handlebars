@@ -93,13 +93,11 @@
                                 <div style="height: 300px; width: 631px" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="d-flex w-100 justify-content-between">
                                         <h3 class="mb-1">{{project.projectName}}</h3>
-                                        <h1>{{owner.userName}}</h1>
                                         <small>{{project.createdAt}}</small>
                                     </div>
                                     <p class="mb-1">{{project.projectDescription}}</p>
-                                    <small>{{project.owner}}</small>
+                                    <small>This project is owned by <a class="inherit-color" href="/user/{{owner.id}}">{{owner.userName}}</a></small>
                                 </div>
-
                             </div>
                         </div>
                     </div>

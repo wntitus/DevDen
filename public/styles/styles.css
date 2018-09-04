@@ -477,3 +477,6 @@ img {
    background-color: #fff !important
  }
 
+.inherit-color {
+  color: inherit;
+}

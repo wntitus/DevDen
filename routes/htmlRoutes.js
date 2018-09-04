@@ -47,26 +47,25 @@ module.exports = function(app) {
       ]
     }).then(function(results) {
       var hbsCollab = results.projectCollaborator;
-      var ownerResult;
-      // console.log(results.dataValues);
       db.User.findOne({
         where: {
           id: results.dataValues.ownerId
         }
       }).then(function(UserRes) {
-        ownerResult = UserRes.dataValues;
+        var ownerResult = UserRes.dataValues;
+        // console.log(ownerResult);
         console.log(ownerResult);
-      });
-      res.render(
-        "projectView",
+        res.render(
+          "projectView",
 
-        {
-          owner: ownerResult,
-          project: results.dataValues,
-          collaborator: hbsCollab,
-          layout: "bootstrap"
-        }
-      );
+          {
+            owner: ownerResult,
+            project: results.dataValues,
+            collaborator: hbsCollab,
+            layout: "bootstrap"
+          }
+        );
+      });
     });
   });
 
@@ -86,8 +85,8 @@ module.exports = function(app) {
         }
       ]
     }).then(function(results) {
-      console.log(results.get().ownerId[0].get());
-      console.log(results.get().ownerId[1].get());
+      // console.log(results.get().ownerId[0].get());
+      // console.log(results.get().ownerId[1].get());
       res.render("profile", {
         user: results.dataValues,
         layout: "bootstrap"
