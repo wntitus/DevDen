@@ -9,7 +9,7 @@ module.exports = function(app) {
   });
 
   app.get("/profile_test", function(req, res) {
-    res.render("profile", { layout: "main2" });
+    res.render("profile", { layout: "bootstrap" });
   });
 
   //Login Page

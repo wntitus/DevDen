@@ -416,12 +416,38 @@ img {
   margin-top: 9px;
   background: transparent;
   border-style: none;
+  color: white;
 }
 
  h6 {
    margin-left: 37px;
  }
+ .badge-primary{
+   background-color: #7C7CF8;
+ }
+ .col-md-2{
+  padding-right: 26px;
+  padding-left: 0px;
+  background-color:  #9497F0;
+  margin-right: 51px;
+    margin-left: -70px;
+    margin-top: -26px;
+    margin-bottom: -71px;
+}
+ h5{
+   text-align: center;
+ }
+ input.message-area{
+   margin-top: 63%;
+   width: 99%;
+   margin-left: -63px;
+ }
 
+ .btn-primary{
+   background-color: #9497F0;
+   border-style: none;
+ }
+ 
  /* Public Projects View CSS =============================================================================================== */
  #public-project-navbar-top {
    height: 31.172px;
