@@ -21,6 +21,12 @@ module.exports = function(sequelize, DataTypes) {
     userName: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    jobTitle: {
+      type: DataTypes.STRING
+    },
+    phoneNumber: {
+      type: DataTypes.INTEGER
     }
   });
   User.prototype.validatePassword = function(password) {

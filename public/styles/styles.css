@@ -305,13 +305,17 @@ label {
   transition: margin-left .5s;
   padding: 16px;
 }
+.card-deck .card {
+  margin-left: 0px;
+  margin-right: 0px;
+}
 
 @media screen and (max-height: 450px) {
 .sidenav {padding-top: 15px;}
 .sidenav a {font-size: 18px;}
 }
 @media (min-width: 576px){
-  .card-deck {margin-right: 5px;}
+  .card-deck {margin-right: 5px; margin-left: 5px;}
 
 }
 
@@ -344,7 +348,7 @@ img {
 }
  img {
    float: left;
-   margin: 0px 0px 0px 7px;
+   margin: 0px 0px 0px 0px;
  }
  
  .team {

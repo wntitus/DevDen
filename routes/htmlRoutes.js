@@ -70,16 +70,17 @@ module.exports = function(app) {
       include: [
         {
           model: db.Project,
-          as: "ownerId",
-          where: {
-            ownerId: req.params.id
-          }
+          as: "ownerId"
         }
       ]
     }).then(function(results) {
-      console.log(results.get().ownerId[0].get());
-      console.log(results.get().ownerId[1].get());
+      var hbsOwnerId = results.ownerId;
+      console.log(hbsOwnerId);
+      // console.log(hbsOwnerId.dataValues.image);
+      // console.log(results.dataValues.ownerId[0].dataValues.projectName);
+
       res.render("profile", {
+        project: hbsOwnerId,
         user: results.dataValues,
         layout: "bootstrap"
       });
