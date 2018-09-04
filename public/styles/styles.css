@@ -18,7 +18,7 @@
 @keyframes moveInLeft {
   0% {
       opacity: 0;
-      transform: translateX(-100px);
+      transform: translateX(-300px);
   }
   100% {
       opacity: 1;
@@ -477,3 +477,113 @@ img {
    background-color: #fff !important
  }
 
+ /* project create style */
+
+ @keyframes moveInTop {
+   0% {
+     transform: translateY(-500px);
+     opacity: 0;
+   }
+   100% {
+     transform: translateY(0px);
+     opacity: 1;
+   }
+ }
+
+ @keyframes moveInRight {
+   0% {
+     transform: translateX(300px);
+     opacity: 0;
+   }
+
+   100% {
+     transform: translateX(0px);
+     opacity: 1;
+   }
+ }
+
+ .create-box {
+   background-color: #9497F0;
+   height: 90vh;
+   width: 46.9rem;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   box-shadow: 0px 8px 6px rgba(0,0,0,.19);
+   animation: fadeIn 1s ease-out .25s;
+   animation-fill-mode: backwards;
+   text-align: center;
+   border: 1px solid black;
+ }
+
+ .create-project-title {
+   color: #fff;
+   margin-top: 1rem;
+   text-shadow: 0px 2px 8px rgba(0,0,0,.16);
+   animation: moveInTop 1s ease-in-out 1s;
+   animation-fill-mode: backwards;
+ }
+
+ .create-input {
+  width: 90%;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  outline: none;
+  border: 1px solid black;
+ }
+
+ .proj-label {
+  animation: fadeIn 1s ease-in-out 2s;
+  animation-fill-mode: backwards;
+ }
+
+ #project-name {
+   height: 2rem;
+   font-size: 1.25rem;
+   animation: moveInLeft .75s ease-in-out 1s;
+   animation-fill-mode: backwards;
+ }
+
+ #project-desc {
+   font-size: 1.25rem;
+   animation: moveInRight .75s ease-in-out 1s;
+   animation-fill-mode: backwards;
+ }
+
+ #project-img-link {
+  height: 2rem;
+  font-size: 1.25rem;
+  animation: moveInRight .75s ease-in-out 1s;
+  animation-fill-mode: backwards;
+ }
+
+ textarea {
+   resize: none;
+ }
+
+ .collab-notice {
+   font-size: 1.25rem;
+   font-weight: 425;
+   animation: fadeIn 1s ease-in-out 2s;
+   animation-fill-mode: backwards;
+ }
+
+ #create-submit {
+   background-color: #7C7CF8;
+   font-size: 2rem;
+   margin-top: 1rem;
+   padding: 1rem;
+   animation: moveInBottom 1s ease-in-out 1s;
+   animation-fill-mode: backwards;
+ }
+
+ #create-submit:hover {
+   background-color: rgb(130, 130, 245);
+   transform: translateY(-3px);
+   box-shadow: 0px 8px 6px rgba(0,0,0,.25);
+ }
+
+ #create-submit:active {
+   outline: none;
+ }
