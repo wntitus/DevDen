@@ -1,6 +1,15 @@
 var db = require("../models");
+var passport = require("../config/passport");
 
 module.exports = function(app) {
+  app.post(
+    "/login",
+    passport.authenticate("local", {
+      successRedirect: "/profile_test",
+      failureRedirect: "/"
+    })
+  );
+
   app.get("/api/users", function(req, res) {
     db.User.findAll().then(function(result) {
       res.json(result);
@@ -17,7 +26,7 @@ module.exports = function(app) {
     });
   });
 
-  app.post("/api/users", function(req, res) {
+  app.post("/register", function(req, res) {
     db.User.create(req.body).then(function(result) {
       res.json(result);
     });

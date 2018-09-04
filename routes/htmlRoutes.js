@@ -1,4 +1,5 @@
 var db = require("../models");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 // var path = require("path");
 
@@ -16,13 +17,8 @@ module.exports = function(app) {
     res.render("profile", { layout: "bootstrap" });
   });
 
-  //Login Page
-  app.get("/login", function(req, res) {
-    res.render("?");
-  });
-
   //Show Projects Page
-  app.get("/projects", function(req, res) {
+  app.get("/projects", isAuthenticated, function(req, res) {
     db.Project.findAll().then(function(results) {
       console.log(results[0].dataValues);
       res.render("publicProjects", {
