@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
   var regModal = $("#signup-modal");
   var logModal = $("#login-modal");
@@ -31,10 +32,10 @@ $(document).ready(function () {
 
   });
   socket.on("newMessage", function (message) {
-    var formatTime = moment(message.createdAt).fromNow();
+    var formatTime = moment(message.createdAt).format("h:mm a");
     console.log("new message", message);
     var li = $("<li></li>");
-    li.text(`${message.from}: ${formatTime.createdAt} ${message.text}`);
+    li.text(`${message.from}: ${formatTime}: ${message.text}`);
     $("#forum-messages").append(li);
   });
   
