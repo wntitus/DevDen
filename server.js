@@ -4,7 +4,7 @@ var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 
 var db = require("./models");
-
+var generateMessage = require("./public/js/message");
 var app = express();
 var server = require("http").Server(app);
 var PORT = process.env.PORT || 3000;
@@ -16,26 +16,20 @@ var io = require("socket.io")(server);
 io.on("connection", function(socket) {
   console.log("new user connected");
   // message from admin "welcome to the message board"
-  socket.emit("newMessage", {
-    from: "Admin",
-    text: "Welcome to devDen's Message Board",
-    createdAt: new Date().getTime()
-  });
+  socket.emit(
+    "newMessage",
+    generateMessage("Admin", "Welcome to the devDin message board ")
+  );
   // broadcast call will alert every user that a new user has joined except for the user who joined
-  socket.broadcast.emit("newMessage", {
-    from: "admin",
-    text: "new user joined",
-    createdAt: new Date().getTime()
-  });
+  socket.broadcast.emit(
+    "newMessage",
+    generateMessage("Admin", "New user joined")
+  );
   // event listener for create message=======================================================================================================================
   socket.on("createMessage", function(message) {
     // making sure the event is going from client to server
     console.log("createMessage", message);
-    io.emit("newMessage", {
-      from: message.from,
-      text: message.text,
-      createdAt: new Date().getTime()
-    });
+    io.emit("newMessage", generateMessage(message.from, message.text));
   });
 
   socket.on("disconnect", function() {
