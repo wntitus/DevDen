@@ -38,7 +38,7 @@ module.exports = function(sequelize, DataTypes) {
       as: "collaboratorId",
       foreignKey: "collaboratorId"
     });
-    User.hasOne(models.Project, {
+    User.hasMany(models.Project, {
       as: "ownerId",
       foreignKey: "ownerId"
     });
