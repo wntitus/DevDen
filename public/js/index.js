@@ -55,11 +55,11 @@ $(document).ready(function () {
       text: $("[name=message]").val()
     }, function () {});
   });
-  var locationBtn = $("#send-location");
-  locationBtn.on("click", function () {
-    if (!navigator.geolocation) {
-      return alert("Geolcation not supported by your browser.")
-    }
+  // var locationBtn = $("#send-location");
+  // locationBtn.on("click", function () {
+  //   if (!navigator.geolocation) {
+  //     return alert("Geolcation not supported by your browser.")
+  //   }
 
     // navigator.geolocation.getCurrentPosition(function (position) {
     //   socket.emit("createLocationMessage", {
@@ -70,4 +70,4 @@ $(document).ready(function () {
     //   alert("Unable to get location");
     // });
   })
-});
+// });

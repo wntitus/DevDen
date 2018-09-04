@@ -18,7 +18,7 @@ var io = require("socket.io")(server);
 
 io.on("connection", function(socket) {
   console.log("new user connected");
-  // message from admin "welcome to the message board"
+  // emit to server to let you see message from admin "welcome to the message board"
   socket.emit(
     "newMessage",
     generateMessage("Admin", "Welcome to the devDin message board ")
