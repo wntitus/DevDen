@@ -74,29 +74,9 @@
                     <div class="card-body">
                         <div class="row">
 
-                        <!--Collab 1-->
-                        <div class="col-sm-3">
-                        <img class="img-circle img-responsive" alt="" style="height: 120px; width: 120px" src="{{project.image}}">
-                        <h6>{{project.owner}}</h6>
-                        </div>
-
-                        <!--Collab 2-->
-                       <div class="col-sm-3">
-                            <img class="img-circle img-responsive" alt="" style="height: 120px; width: 120px" src="http://placehold.it/120x120">
-                            <h6>{{project.collaborators}}</h6>
-                       </div>
-
-                        <!--Collab 3-->
-                       <div class="col-sm-3">
-                            <img class="img-circle img-responsive" alt="" style="height: 120px; width: 120px" src="http://placehold.it/120x120">
-                            <h6>{{project.collaborators}}</h6>
-                       </div>
-
-                        <!--Collab 4-->
-                        <div class="col-sm-3">
-                            <img class="img-circle img-responsive" alt="" style="height: 120px; width: 120px" src="http://placehold.it/120x120">
-                            <h6>{{project.collaborators}}</h6>
-                        </div>
+                        {{#each collaborator}}
+                            {{> projects/pro-view-info-block}}
+                        {{/each}}
 
                         </div>
                     </div>
@@ -129,6 +109,12 @@
     </div>
 </div>
 </div>
+</div>
+<div class="testDiv">
+    <h1>COLLABS</h1>
+    {{#each collaborator}}
+    <h2>{{dataValues.id}}</h2>
+    {{/each}}
 </div>
 
 
