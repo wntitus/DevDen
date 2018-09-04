@@ -47,12 +47,21 @@ module.exports = function(app) {
       ]
     }).then(function(results) {
       var hbsCollab = results.projectCollaborator;
-      // console.log(hbsCollab);
-      console.log(hbsCollab[0].dataValues.User.dataValues);
+      var ownerResult;
+      // console.log(results.dataValues);
+      db.User.findOne({
+        where: {
+          id: results.dataValues.ownerId
+        }
+      }).then(function(UserRes) {
+        ownerResult = UserRes.dataValues;
+        console.log(ownerResult);
+      });
       res.render(
         "projectView",
 
         {
+          owner: ownerResult,
           project: results.dataValues,
           collaborator: hbsCollab,
           layout: "bootstrap"
