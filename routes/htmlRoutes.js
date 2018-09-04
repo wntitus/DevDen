@@ -56,7 +56,7 @@ module.exports = function(app) {
         collaborators[i].name = results.projectCollaborator[i].User.userName;
         collaborators[i].img = results.projectCollaborator[i].User.image;
       }
-      // console.log(collaborators);
+      console.log(collaborators);
       res.render(
         "projectView",
 
@@ -74,9 +74,19 @@ module.exports = function(app) {
     db.User.findOne({
       where: {
         id: req.params.id
-      }
+      },
+      include: [
+        {
+          model: db.Project,
+          as: "ownerId",
+          where: {
+            ownerId: req.params.id
+          }
+        }
+      ]
     }).then(function(results) {
-      console.log(results.dataValues);
+      console.log(results.get().ownerId[0].get());
+      console.log(results.get().ownerId[1].get());
       res.render("profile", {
         user: results.dataValues,
         layout: "bootstrap"

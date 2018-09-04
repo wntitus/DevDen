@@ -3,10 +3,10 @@ module.exports = function(sequelize, DataTypes) {
     numOfCommits: {
       type: DataTypes.INTEGER,
       defaultValue: 0
-    },
-    collaboratorID: {
-      type: DataTypes.INTEGER
     }
+    // collaboratorID: {
+    //   type: DataTypes.INTEGER
+    // }
   });
   Collaborator.associate = function(models) {
     Collaborator.belongsTo(models.User, {
