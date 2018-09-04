@@ -31,19 +31,13 @@ $(document).ready(function () {
 
   });
   socket.on("newMessage", function (message) {
+    var formatTime = moment(message.createdAt).fromNow();
     console.log("new message", message);
     var li = $("<li></li>");
-    li.text(`${message.from}: ${message.text}`);
+    li.text(`${message.from}: ${formatTime.createdAt} ${message.text}`);
     $("#forum-messages").append(li);
   });
-  // socket.on("newlocationMessage", function (message) {
-  //   var li = $("<li></li>");
-  //   var anchor = $("<a target="_blank">My Current Location</a>");
-
-  //  li.text(`${message.from}: `); anchor.attr("href", message.url);
-  //   li.append(anchor); $("#forum-messages").append(li);
-  // });
-
+  
   socket.on("disconnect", function () {
     console.log("disconnected from server");
   });
@@ -57,19 +51,5 @@ $(document).ready(function () {
       $("[name=message]").val("")
     });
   });
-  // var locationBtn = $("#send-location");
-  // locationBtn.on("click", function () {
-  //   if (!navigator.geolocation) {
-  //     return alert("Geolcation not supported by your browser.")
-  //   }
 
-    // navigator.geolocation.getCurrentPosition(function (position) {
-    //   socket.emit("createLocationMessage", {
-    //     lat: position.coords.latitude,
-    //     long: position.coords.longitude
-    //   });
-    // }, function () {
-    //   alert("Unable to get location");
-    // });
-  })
-// });
+})
