@@ -46,19 +46,9 @@ module.exports = function(app) {
         }
       ]
     }).then(function(results) {
-      //Defining empty array to hold each collaborator
-      var collaborators = [];
       var hbsCollab = results.projectCollaborator;
-      console.log(hbsCollab);
-      //Looping through each collaborator
-      for (var i = 0; i < results.projectCollaborator.length; i++) {
-        //pushing an empty object on each iteration, used to store collaborator information
-        collaborators.push({});
-        //Setting name and image values to the collaborator object
-        collaborators[i].name = results.projectCollaborator[i].User.userName;
-        collaborators[i].img = results.projectCollaborator[i].User.image;
-      }
-      // console.log(collaborators);
+      // console.log(hbsCollab);
+      console.log(hbsCollab[0].dataValues.User.dataValues);
       res.render(
         "projectView",
 
