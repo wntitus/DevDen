@@ -79,7 +79,6 @@ module.exports = function(app) {
       // console.log(hbsOwnerId.dataValues.image);
       // console.log(results.dataValues.ownerId[0].dataValues.projectName);
 
-
       res.render("profile", {
         project: hbsOwnerId,
         user: results.dataValues,
