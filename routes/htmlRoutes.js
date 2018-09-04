@@ -48,6 +48,8 @@ module.exports = function(app) {
     }).then(function(results) {
       //Defining empty array to hold each collaborator
       var collaborators = [];
+      var hbsCollab = results.projectCollaborator;
+      console.log(hbsCollab);
       //Looping through each collaborator
       for (var i = 0; i < results.projectCollaborator.length; i++) {
         //pushing an empty object on each iteration, used to store collaborator information
@@ -56,13 +58,13 @@ module.exports = function(app) {
         collaborators[i].name = results.projectCollaborator[i].User.userName;
         collaborators[i].img = results.projectCollaborator[i].User.image;
       }
-      console.log(collaborators);
+      // console.log(collaborators);
       res.render(
         "projectView",
 
         {
           project: results.dataValues,
-          collaborator: collaborators,
+          collaborator: hbsCollab,
           layout: "bootstrap"
         }
       );
