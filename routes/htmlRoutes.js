@@ -1,4 +1,5 @@
 var db = require("../models");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 // var path = require("path");
 
@@ -8,17 +9,16 @@ module.exports = function(app) {
     res.render("index", { layout: "main" });
   });
 
+  app.get("/create_project", function(req, res) {
+    res.render("projectCreate", { layout: "main" });
+  });
+
   app.get("/profile_test", function(req, res) {
     res.render("profile", { layout: "bootstrap" });
   });
 
-  //Login Page
-  app.get("/login", function(req, res) {
-    res.render("?");
-  });
-
   //Show Projects Page
-  app.get("/projects", function(req, res) {
+  app.get("/projects", isAuthenticated, function(req, res) {
     db.Project.findAll().then(function(results) {
       console.log(results[0].dataValues);
       res.render("publicProjects", {
@@ -82,14 +82,17 @@ module.exports = function(app) {
       include: [
         {
           model: db.Project,
-          as: "ownerId",
-          where: {
-            ownerId: req.params.id
-          }
+          as: "ownerId"
         }
       ]
     }).then(function(results) {
+      var hbsOwnerId = results.ownerId;
+      console.log(hbsOwnerId);
+      // console.log(hbsOwnerId.dataValues.image);
+      // console.log(results.dataValues.ownerId[0].dataValues.projectName);
+
       res.render("profile", {
+        project: hbsOwnerId,
         user: results.dataValues,
         layout: "bootstrap"
       });
