@@ -74,10 +74,20 @@ module.exports = function(app) {
     db.User.findOne({
       where: {
         id: req.params.id
-      }
+      },
+      include: [
+        {
+          model: db.Project,
+          as: "ownerId"
+        }
+      ]
     }).then(function(results) {
-      console.log(results.dataValues);
+      var hbsOwnerId = results.ownerId;
+      console.log(hbsOwnerId);
+      // console.log(hbsOwnerId.dataValues.image);
+      // console.log(results.dataValues.ownerId[0].dataValues.projectName);
       res.render("profile", {
+        project: hbsOwnerId,
         user: results.dataValues,
         layout: "bootstrap"
       });

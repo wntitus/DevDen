@@ -21,6 +21,12 @@ module.exports = function(sequelize, DataTypes) {
     userName: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    jobTitle: {
+      type: DataTypes.STRING
+    },
+    phoneNumber: {
+      type: DataTypes.INTEGER
     }
   });
   User.prototype.validatePassword = function(password) {
@@ -38,7 +44,7 @@ module.exports = function(sequelize, DataTypes) {
       as: "collaboratorId",
       foreignKey: "collaboratorId"
     });
-    User.hasOne(models.Project, {
+    User.hasMany(models.Project, {
       as: "ownerId",
       foreignKey: "ownerId"
     });
