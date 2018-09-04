@@ -34,10 +34,12 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       },
+      //using 'include' to join Project and Collaborators tables
       include: [
         {
           model: db.Collaborator,
           as: "projectCollaborator",
+          //using 'include' to join Users table as well.
           include: [
             {
               model: db.User
@@ -46,14 +48,16 @@ module.exports = function(app) {
         }
       ]
     }).then(function(results) {
+      //setting the returned value from the projects/collaborators join query to hbsCollab
       var hbsCollab = results.projectCollaborator;
+      //Querying the Users table to find the owner of the project
       db.User.findOne({
         where: {
           id: results.dataValues.ownerId
         }
       }).then(function(UserRes) {
+        //Setting the returned data from the Users table query to ownerResult
         var ownerResult = UserRes.dataValues;
-        // console.log(ownerResult);
         console.log(ownerResult);
         res.render(
           "projectView",
@@ -85,8 +89,6 @@ module.exports = function(app) {
         }
       ]
     }).then(function(results) {
-      // console.log(results.get().ownerId[0].get());
-      // console.log(results.get().ownerId[1].get());
       res.render("profile", {
         user: results.dataValues,
         layout: "bootstrap"
