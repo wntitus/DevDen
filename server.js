@@ -7,7 +7,6 @@ var exphbs = require("express-handlebars");
 var session = require("express-session");
 var passport = require("./config/passport");
 
-
 var db = require("./models");
 
 var generateMessage = require("./public/js/message");
