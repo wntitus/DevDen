@@ -104,7 +104,24 @@ body {
 }
 
 h1, h2 {
-  text-align: center;
+  
+}
+
+.checked {
+  color: orange;
+}
+
+#center {
+  margin-top: 55px;
+}
+
+#otherProjects{
+margin: 95px 0px 0px 80px;
+}
+
+
+#accolades {
+  margin-left: 175px;
 }
 
 .pull-text {

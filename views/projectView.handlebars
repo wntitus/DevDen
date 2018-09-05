@@ -2,7 +2,7 @@
 
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-     <a href="/user/1">Profile</a>
+    <a href="/user/1">Profile</a>
     <a href="/project/1">Your Projects</a>
     <a href="/projects">Project Hub</a>
     <a href="/messages">Message Board</a>
@@ -11,80 +11,90 @@
 <span style="font-size:18px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
 
 <div id="main">
-<div class="container">
-    <div class="row">
-        <div class="col-md-5">
-            <div class="card">
-                <div class="card-body">
-                    <img src="{{project.image}}" alt="" style="width: 100%; height: auto; border-radius: 0;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="card">
+                    <div id="projectImage" class="card-body">
+                        <img src="{{project.image}}" alt="" style="width: 100%; height: auto; border-radius: 0;">
+                    </div>
                 </div>
+
+                <div id="otherProjects" class="card" style="width: 18rem;">
+                    <div class="card-body text-center">
+                      
+                       
+                        <a href="https://github.com/" class="card-link"><i class="fab fa-github fa-3x"></i></a>
+                        <a href="https://www.linkedin.com/feed/" class="card-link"><i class="fab fa-linkedin fa-3x"></i></a>
+                    </div>
+                </div>
+
+
+                <!--MyProject Veiw List-->
+
+                {{!--
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{{project.projectName}}</h5>
+                            <small>{{project.createdAt}}</small>
+                        </div>
+                        <small>{{project.owner}}</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{{project.projectName}}</h5>
+                            <small class="text-muted">{{project.createdAt}}</small>
+                        </div>
+                        <small class="text-muted">{{project.owner}}</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{{project.projectName}}</h5>
+                            <small class="text-muted">{{project.createdAt}}</small>
+                        </div>
+                        <small class="text-muted">{{project.owner}}</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{{project.projectName}}</h5>
+                            <small class="text-muted">{{project.createdAt}}</small>
+                        </div>
+                        <small class="text-muted">{{project.owner}}</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{{project.projectName}}</h5>
+                            <small class="text-muted">{{project.createdAt}}</small>
+                        </div>
+                        <small class="text-muted">{{project.owner}}</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{{project.projectName}}</h5>
+                            <small class="text-muted">{{project.createdAt}}</small>
+                        </div>
+                        <small class="text-muted">{{project.owner}}</small>
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">{{project.projectName}}</h5>
+                            <small class="text-muted">{{project.createdAt}}</small>
+                        </div>
+                        <small class="text-muted">{{project.owner}}</small>
+                    </a>
+                </div> --}}
+
             </div>
-            <!--MyProject Veiw List-->
 
-            {{!-- <div class="list-group">
-                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">{{project.projectName}}</h5>
-                        <small>{{project.createdAt}}</small>
-                    </div>
-                    <small>{{project.owner}}</small>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">{{project.projectName}}</h5>
-                        <small class="text-muted">{{project.createdAt}}</small>
-                    </div>
-                    <small class="text-muted">{{project.owner}}</small>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">{{project.projectName}}</h5>
-                        <small class="text-muted">{{project.createdAt}}</small>
-                    </div>
-                    <small class="text-muted">{{project.owner}}</small>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">{{project.projectName}}</h5>
-                        <small class="text-muted">{{project.createdAt}}</small>
-                    </div>
-                    <small class="text-muted">{{project.owner}}</small>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">{{project.projectName}}</h5>
-                        <small class="text-muted">{{project.createdAt}}</small>
-                    </div>
-                    <small class="text-muted">{{project.owner}}</small>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">{{project.projectName}}</h5>
-                        <small class="text-muted">{{project.createdAt}}</small>
-                    </div>
-                    <small class="text-muted">{{project.owner}}</small>
-                </a>
-                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">{{project.projectName}}</h5>
-                        <small class="text-muted">{{project.createdAt}}</small>
-                    </div>
-                    <small class="text-muted">{{project.owner}}</small>
-                </a>
-            </div> --}}
+            <!--Team/Collaborators List-->
 
-        </div>
-
-        <!--Team/Collaborators List-->
-        
             <div class="col-md-7">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
 
-                        {{#each collaborator}}
-                            {{> projects/pro-view-info-block}}
-                        {{/each}}
+                            {{#each collaborator}} {{> projects/pro-view-info-block}} {{/each}}
 
                         </div>
                     </div>
@@ -97,19 +107,22 @@
                     <h5 class="card-header">Project Info</h5>
                     <div class="d-flex w-100 justify-content-between">
                         <div class="card">
-                            <div  class="list-group">
+                            <div class="list-group">
                                 <div style="height: 300px; width: 631px" class="list-group-item list-group-item-action flex-column align-items-start">
                                     <div class="d-flex w-100 justify-content-between">
                                         <h3 class="mb-1">{{project.projectName}}</h3>
                                         <small>{{project.createdAt}}</small>
                                     </div>
                                     <p class="mb-1">{{project.projectDescription}}</p>
-                                    <small>This project is owned by <a class="inherit-color" href="/user/{{owner.id}}">{{owner.userName}}</a></small>
+                                    <small>This project is owned by
+                                        <a class="inherit-color" href="/user/{{owner.id}}">{{owner.userName}}</a>
+                                    </small>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -131,6 +144,14 @@
 
 
 <script>
+
+    //var changeDate = {{createdAt}}
+    //var changedTime = moment({{createdAt}}).startOf('day').fromNow();
+    //console.log(changedTime);
+
+    //var humanize = moment.duration(changedTime).humanize();
+    // console.log(humanize);
+
     function openNav() {
         document.getElementById("mySidenav").style.width = "250px";
         document.getElementById("main").style.marginLeft = "250px";
