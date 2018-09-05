@@ -91,7 +91,7 @@ module.exports = function(app) {
       ]
     }).then(function(results) {
       var hbsOwnerId = results.ownerId;
-      console.log(hbsOwnerId);
+      // console.log(hbsOwnerId);
       // console.log(hbsOwnerId.dataValues.image);
       // console.log(results.dataValues.ownerId[0].dataValues.projectName);
 
