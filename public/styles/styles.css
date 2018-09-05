@@ -481,6 +481,10 @@ img {
    background-color: #fff !important
  }
 
+.inherit-color {
+  color: inherit;
+}
+
  /* project create style */
 
  @keyframes moveInTop {
@@ -591,3 +595,4 @@ img {
  #create-submit:active {
    outline: none;
  }
+

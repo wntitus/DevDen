@@ -8,17 +8,17 @@ module.exports = function(app) {
     res.render("index", { layout: "main" });
   });
 
+  app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
+  });
+
   app.get("/create_project", function(req, res) {
     res.render("projectCreate", { layout: "main" });
   });
 
   app.get("/profile_test", function(req, res) {
     res.render("profile", { layout: "bootstrap" });
-  });
-
-  //Login Page
-  app.get("/login", function(req, res) {
-    res.render("?");
   });
 
   //Show Projects Page
@@ -38,10 +38,12 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       },
+      //using 'include' to join Project and Collaborators tables
       include: [
         {
           model: db.Collaborator,
           as: "projectCollaborator",
+          //using 'include' to join Users table as well.
           include: [
             {
               model: db.User
@@ -50,18 +52,28 @@ module.exports = function(app) {
         }
       ]
     }).then(function(results) {
+      //setting the returned value from the projects/collaborators join query to hbsCollab
       var hbsCollab = results.projectCollaborator;
-      // console.log(hbsCollab);
-      console.log(hbsCollab[0].dataValues.User.dataValues);
-      res.render(
-        "projectView",
-
-        {
-          project: results.dataValues,
-          collaborator: hbsCollab,
-          layout: "bootstrap"
+      //Querying the Users table to find the owner of the project
+      db.User.findOne({
+        where: {
+          id: results.dataValues.ownerId
         }
-      );
+      }).then(function(UserRes) {
+        //Setting the returned data from the Users table query to ownerResult
+        var ownerResult = UserRes.dataValues;
+        console.log(ownerResult);
+        res.render(
+          "projectView",
+
+          {
+            owner: ownerResult,
+            project: results.dataValues,
+            collaborator: hbsCollab,
+            layout: "bootstrap"
+          }
+        );
+      });
     });
   });
 
