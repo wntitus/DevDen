@@ -6,8 +6,6 @@ var exphbs = require("express-handlebars");
 var db = require("./models");
 
 var generateMessage = require("./public/js/message");
-// var generateLocationMessage = require("./public/js/message");
-
 var app = express();
 var server = require("http").Server(app);
 var PORT = process.env.PORT || 3000;
@@ -19,15 +17,21 @@ var io = require("socket.io")(server);
 io.on("connection", function(socket) {
   console.log("new user connected");
   // emit to server to let you see message from admin "welcome to the message board"
-  socket.emit(
-    "newMessage",
-    generateMessage("Admin", "Welcome to the devDin message board ")
-  );
-  // broadcast call will alert every user that a new user has joined except for the user who joined
-  socket.broadcast.emit(
-    "newMessage",
-    generateMessage("Admin", "New user joined")
-  );
+
+  socket.join("connect", function() {
+    socket.join("room");
+    io.to("room").emit(
+      "newMessage",
+      generateMessage("Admin", "Welcome to the devDin message board ")
+    );
+    // broadcast call will alert every user that a new user has joined except for the user who joined
+    io.to("javascript").emit(
+      "newMessage",
+      generateMessage("Admin", "New user joined")
+    );
+  });
+  // socket.join(params.room);
+
   // event listener for create message=======================================================================================================================
   socket.on("createMessage", function(message, callback) {
     // making sure the event is going from client to server

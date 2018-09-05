@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
   var regModal = $("#signup-modal");
   var logModal = $("#login-modal");
@@ -28,6 +27,8 @@ $(document).ready(function () {
   var socket = io.connect();
 
   socket.on("connect", function () {
+    
+
     console.log("connected to server");
 
   });
@@ -40,7 +41,7 @@ $(document).ready(function () {
     p.text(`${message.text}`);
     $("#message-body").append(h4).append(p);
   });
-  
+
   socket.on("disconnect", function () {
     console.log("disconnected from server");
   });
