@@ -16,22 +16,20 @@ var io = require("socket.io")(server);
 
 io.on("connection", function(socket) {
   console.log("new user connected");
-  // emit to server to let you see message from admin "welcome to the message board"
-
-  socket.join("connect", function() {
-    socket.join("room");
-    io.to("room").emit(
+  room = "javascript";
+  // listening for event from the client and join the room
+  socket.on("join", function(room) {
+    console.log("join", room);
+    // room thats being joined
+    socket.join(room);
+    // emit to server to let you see message from admin "welcome to the message board"
+    io.to(room).emit(
       "newMessage",
-      generateMessage("Admin", "Welcome to the devDin message board ")
+      generateMessage("Admin", "Welcome to the javascript chat board ")
     );
     // broadcast call will alert every user that a new user has joined except for the user who joined
-    io.to("javascript").emit(
-      "newMessage",
-      generateMessage("Admin", "New user joined")
-    );
+    io.to(room).emit("newMessage", generateMessage("Admin", "New user joined"));
   });
-  // socket.join(params.room);
-
   // event listener for create message=======================================================================================================================
   socket.on("createMessage", function(message, callback) {
     // making sure the event is going from client to server

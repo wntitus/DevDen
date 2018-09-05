@@ -25,13 +25,21 @@ $(document).ready(function () {
   };
 
   var socket = io.connect();
+  var room = "javascript";
+// 
+  // socket.on("join", function (room) {
+  //   console.log("join",room);
 
-  socket.on("connect", function () {
+  //   socket.join(room,function(){
+  //     console.log(sockets.rooms);
+  //   });
     
-
-    console.log("connected to server");
-
-  });
+  // });
+  socket.on('connect', onConnect);
+	function onConnect() {
+		console.log('connected');
+		socket.emit('join', room);
+	}
   socket.on("newMessage", function (message) {
     var formatTime = moment(message.createdAt).format("h:mm");
     console.log("new message", message);
