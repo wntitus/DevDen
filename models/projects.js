@@ -7,10 +7,7 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    // owner: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false
-    // },
+    // rs
     collabInvite: {
       type: DataTypes.STRING
     },
