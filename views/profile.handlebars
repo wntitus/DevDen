@@ -1,101 +1,120 @@
-
-    <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-       <a href="/user/1">Profile</a>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/user/1">Profile</a>
     <a href="/project/1">Your Projects</a>
     <a href="/projects">Project Hub</a>
     <a href="/messages">Message Board</a>
-        <a href="#" class="button">Sign Out</a>
-    </div>
-    <span style="font-size:18px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
+    <a href="#" class="button">Sign Out</a>
+</div>
+<span style="font-size:18px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
 
-    <div id="main">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-4">
-                    <img class="img-circle img-responsive" alt="" src="{{user.image}}" style="height: 280px; width: 280px;">
-                    <h2>{{user.userName}}</h2>
-                </div>
+<div id="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-4">
+                <img class="img-circle img-responsive" alt="" src="{{user.image}}" style="height: 280px; width: 280px;">
+                <h2>{{user.userName}}</h2>
+            </div>
 
-                <div class="col-xs-12 col-8">
-                    <ul class="list-group">
-                        <li class="list-group-item">{{user.userName}}</li>
-                        <li class="list-group-item">{{user.jobTitle}}</li>
+            <div class="col-xs-12 col-8">
+                <ul class="list-group">
+                    <li class="list-group-item">{{user.userName}}</li>
+                    <li class="list-group-item">{{user.jobTitle}}</li>
+                    {{!--
+                    <li class="list-group-item work place">Google Inc. </li> --}}
+                    <li class="list-group-item ">
+                        <i class="fa fa-phone"></i> {{ user.phoneNumber }} </li>
+                    <li class="list-group-item">
+                        <i class="fa fa-envelope "></i> {{user.email}}</li>
+                </ul>
+                <br>
+                <div id="accolades" class="card" style="width: 25rem;align-content: center;">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Accolades</h5>
+                        <span class="fa fa-star checked fa-3x"></span>
+                        <span class="fa fa-star checked fa-3x"></span>
+                        <span class="fa fa-star checked fa-3x"></span>
+                        <span class="fa fa-star checked fa-3x"></span>
+                        <span class="fa fa-star fa-3x"></span>
                         {{!--
-                        <li class="list-group-item work place">Google Inc. </li> --}}
-                        <li class="list-group-item ">
-                            <i class="fa fa-phone"></i> {{ user.phoneNumber }} </li>
-                        <li class="list-group-item">
-                            <i class="fa fa-envelope "></i> {{user.email}}</li>
-                    </ul>
+                        <img src="/public/images/star.png" />
+                        <img src="/public/images/star.png" />
+                        <img src="/public/images/star.png" />
+                        <img src="/public/images/star-outline.png" />
+                        <img src="../public/images/star-outline.png" /> --}}
+
+                    </div>
                 </div>
             </div>
-            <br>
-        </div>
-        <div class="card">
-            <div class="card-header">
-                Projects </div> <br>
-            <div class="card-deck">
-              
-                    {{#each project}}
-                      {{> projects/profile-info-block}}
-                    {{/each}}
-            <br>
-            </div>
+
+
+
         </div>
         <br>
-        <div class="card">
-            <div class="card-header">
-                Language and Platform Skills
-            </div>
-            <div class="card-body">
-                <div class="container">
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated progress-bar bg-warning" style="width:45%">PHP/Lamp Stack 45%</div>
-                    </div>
-                </div>
-                <br>
-                <div class="container">
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated progress-bar bg-success" style="width:80%">React with Redux 80%</div>
-                    </div>
-                </div>
-                <br>
-                <div class="container">
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated progress-bar bg-danger " style="width:20%">Angular 20%</div>
-                    </div>
-                </div>
-                <br>
-                <div class="container">
-                    <div class="progress">
-                        <div class="progress-bar progress-bar-striped progress-bar-animated progress-bar bg-info " style="width:65%">Ruby on Rails 65%</div>
-                    </div>
-                </div>
-                <br>
-                {{!-- <div class="container">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <p class="beginner">Beginner</p>
-                        </div>
-                        <div class="col-xs-3">
-                            <p class="intermediate">I know little</p>
-                        </div>
-                        <div class="col-xs-3">
-                            <p class="good">I'm Good</p>
-                        </div>
-                        <div class="col-xs-3">
-                        <p class="guru">I'm a guru</p>
-                    </div>
-                    </div>
-                    
-                </div> --}}
+    </div>
+    <div class="card">
+        <div class="card-header">
+            Projects </div>
+        <br>
+        <div class="card-deck">
 
-
-            </div>
-
+            {{#each project}} {{> projects/profile-info-block}} {{/each}}
+            <br>
         </div>
     </div>
+    <br>
+    <div class="card">
+        <div class="card-header">
+            Language and Platform Skills
+        </div>
+        <div class="card-body">
+            <div class="container">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated progress-bar bg-warning" style="width:45%">PHP/Lamp Stack 45%</div>
+                </div>
+            </div>
+            <br>
+            <div class="container">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated progress-bar bg-success" style="width:80%">React with Redux 80%</div>
+                </div>
+            </div>
+            <br>
+            <div class="container">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated progress-bar bg-danger " style="width:20%">Angular 20%</div>
+                </div>
+            </div>
+            <br>
+            <div class="container">
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated progress-bar bg-info " style="width:65%">Ruby on Rails 65%</div>
+                </div>
+            </div>
+            <br> {{!--
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <p class="beginner">Beginner</p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="intermediate">I know little</p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="good">I'm Good</p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p class="guru">I'm a guru</p>
+                    </div>
+                </div>
+
+            </div> --}}
+
+
+        </div>
+
+    </div>
+</div>
 
 
 
@@ -117,4 +136,3 @@
         document.body.style.backgroundColor = "#D7D6EB";
     }
 </script>
-
