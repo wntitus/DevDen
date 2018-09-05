@@ -120,4 +120,49 @@ module.exports = function(app) {
   app.get("/joinChat", function(req, res) {
     res.render("joinChat", { layout: "bootstrap" });
   });
+
+  //Settings Page
+  app.get("/settings/:id", function(req, res) {
+    db.Project.findOne({
+      where: {
+        id: req.params.id
+      },
+      //using 'include' to join Project and Collaborators tables
+      include: [
+        {
+          model: db.Collaborator,
+          as: "projectCollaborator",
+          //using 'include' to join Users table as well.
+          include: [
+            {
+              model: db.User
+            }
+          ]
+        }
+      ]
+    }).then(function(results) {
+      //setting the returned value from the projects/collaborators join query to hbsCollab
+      var hbsCollab = results.projectCollaborator;
+      //Querying the Users table to find the owner of the project
+      db.User.findOne({
+        where: {
+          id: results.dataValues.ownerId
+        }
+      }).then(function(UserRes) {
+        //Setting the returned data from the Users table query to ownerResult
+        var ownerResult = UserRes.dataValues;
+        console.log(ownerResult);
+        res.render(
+          "settings",
+
+          {
+            owner: ownerResult,
+            project: results.dataValues,
+            collaborator: hbsCollab,
+            layout: "bootstrap"
+          }
+        );
+      });
+    });
+  });
 };
