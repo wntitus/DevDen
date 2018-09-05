@@ -28,7 +28,9 @@ module.exports = function(app) {
 
   app.post("/register", function(req, res) {
     db.User.create(req.body).then(function(result) {
-      res.json(result);
+      res.redirect("/user/" + result.id);
+      // res.json(result);
+      // console.log("post to /register in userRoutes.js line 32");
     });
   });
 
@@ -41,4 +43,12 @@ module.exports = function(app) {
       res.json(result);
     });
   });
+
+  //Adding this back in for the time being to utilize Postman==================================================================================================================
+  app.post("/api/users", function(req, res) {
+    db.User.create(req.body).then(function(result) {
+      res.json(result);
+    });
+  });
+  //Can be removed after deployment==================================================================================================================
 };
