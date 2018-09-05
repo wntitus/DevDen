@@ -487,9 +487,9 @@ h5 {
 }
 
 input.message-area {
-  margin-top: 63%;
-  width: 99%;
-  margin-left: -63px;
+  margin-top: 35%;
+    width: 95%;
+    margin-left: -51px;
 }
 
 .btn-primary {
@@ -504,7 +504,11 @@ li {
 h4 {
   font-size: 18px;
 }
+#message-body{
+  position: relative;
+  
 
+}
 /* join chat page============================================================================================================== */
 
 .centered-form {
