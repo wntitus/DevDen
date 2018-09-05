@@ -32,11 +32,13 @@ $(document).ready(function () {
 
   });
   socket.on("newMessage", function (message) {
-    var formatTime = moment(message.createdAt).format("h:mm a");
+    var formatTime = moment(message.createdAt).format("h:mm");
     console.log("new message", message);
-    var li = $("<li></li>");
-    li.text(`${message.from}: ${formatTime}: ${message.text}`);
-    $("#forum-messages").append(li);
+    var h4 = $("<h4></h4>");
+    var p = $("<p></p>");
+    h4.text(`${message.from}: ${formatTime}`);
+    p.text(`${message.text}`);
+    $("#message-body").append(h4).append(p);
   });
   
   socket.on("disconnect", function () {

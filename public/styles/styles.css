@@ -6,34 +6,32 @@
 
 @keyframes fadeIn {
   0% {
-      opacity: 0;
-
+    opacity: 0;
   }
   100% {
-      opacity: 1;
-
+    opacity: 1;
   }
 }
 
 @keyframes moveInLeft {
   0% {
-      opacity: 0;
-      transform: translateX(-100px);
+    opacity: 0;
+    transform: translateX(-100px);
   }
   100% {
-      opacity: 1;
-      transform: translateX(0);
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
 @keyframes moveInBottom {
   0% {
-      opacity: 0;
-      transform: translateY(100px);
+    opacity: 0;
+    transform: translateY(100px);
   }
   100% {
-      opacity: 1;
-      transform: translateY(0px);
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
 
@@ -57,7 +55,7 @@ body {
   position: relative;
   background-size: cover;
   background-position: top;
-  box-shadow: 0px 4px 6px rgba(0,0,0,.16);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, .16);
 }
 
 .navbar-top {
@@ -76,7 +74,7 @@ body {
   position: absolute;
   right: 20px;
   bottom: 5px;
-  text-shadow: 0px 1px 6px rgba(0,0,0,.16);
+  text-shadow: 0px 1px 6px rgba(0, 0, 0, .16);
 }
 
 .title-box {
@@ -84,13 +82,12 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
-
 }
 
 .title-text {
   font-size: 4.5rem;
   color: white;
-  text-shadow: 0px 4px 5px rgba(0,0,0,.16);
+  text-shadow: 0px 4px 5px rgba(0, 0, 0, .16);
   margin-bottom: -30px;
   animation: fadeIn 3s ease-out .75s;
   animation-fill-mode: backwards;
@@ -99,7 +96,7 @@ body {
 .sub-text {
   font-size: 2.5rem;
   color: white;
-  text-shadow: 0px 2px 8px rgba(0,0,0,.16);
+  text-shadow: 0px 2px 8px rgba(0, 0, 0, .16);
   animation: moveInLeft 1.5s ease-in-out;
 }
 
@@ -109,7 +106,7 @@ h1, h2 {
 
 .pull-text {
   margin-top: 25px;
-  text-shadow: 0px 4px 6px rgba(0,0,0,.16);
+  text-shadow: 0px 4px 6px rgba(0, 0, 0, .16);
 }
 
 .landing-body {
@@ -122,7 +119,7 @@ button {
   border: none;
   background-color: #9497F0;
   color: white;
-  box-shadow: 0px 8px 6px rgba(0,0,0,.16);
+  box-shadow: 0px 8px 6px rgba(0, 0, 0, .16);
   cursor: pointer;
   -webkit-appearance: none;
 }
@@ -146,24 +143,18 @@ button {
   animation-fill-mode: backwards;
 }
 
-.project-view-button:focus,
-.signup-button:focus,
-.register-button:focus {
+.project-view-button:focus, .signup-button:focus, .register-button:focus {
   outline: 0;
 }
 
-.project-view-button:hover,
-.signup-button:hover,
-.register-button:hover {
+.project-view-button:hover, .signup-button:hover, .register-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0px 8px 6px rgba(0,0,0,.25);
+  box-shadow: 0px 8px 6px rgba(0, 0, 0, .25);
 }
 
-.project-view-button:active,
-.signup-button:active,
-.register-button:active {
+.project-view-button:active, .signup-button:active, .register-button:active {
   transform: translateY(-1px);
-  box-shadow: 0px 8px 6px rgba(0,0,0,.19);
+  box-shadow: 0px 8px 6px rgba(0, 0, 0, .19);
 }
 
 .modal {
@@ -175,7 +166,7 @@ button {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,.14);
+  background-color: rgba(0, 0, 0, .14);
 }
 
 .modal-content {
@@ -192,8 +183,7 @@ button {
   float: right;
 }
 
-.close:hover,
-.close:focus {
+.close:hover, .close:focus {
   color: #7C7CF8;
   text-decoration: none;
   cursor: pointer;
@@ -222,7 +212,7 @@ button {
   padding: 0;
   border: 1px solid #888;
   width: 50%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   animation-name: animateTop;
   animation-duration: 0.4s;
   text-align: center;
@@ -233,7 +223,6 @@ button {
     top: -300px;
     opacity: 0;
   }
-
   to {
     top: 0px;
     opacity: 1;
@@ -264,8 +253,10 @@ label {
 .forgot-link {
   text-decoration: none;
 }
+
 /* Profile css ===============================================================================================*/
-/* navbar */  
+
+/* navbar */
 
 .sidenav {
   height: 100%;
@@ -307,65 +298,76 @@ label {
 }
 
 @media screen and (max-height: 450px) {
-.sidenav {padding-top: 15px;}
-.sidenav a {font-size: 18px;}
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
 }
-@media (min-width: 576px){
-  .card-deck {margin-right: 5px;}
 
+@media (min-width: 576px) {
+  .card-deck {
+    margin-right: 5px;
+  }
 }
-
 
 img {
   border-radius: 50%;
 }
 
-.card-header{
+.card-header {
   text-align: center;
   font-size: 24px;
   background-color: #9497F0!important;
 }
 
-.list-group{
+.list-group {
   /* border-left-style: solid!important; */
-    border-width: 7px;
-    border-radius: 13px;
-    border-color: #818181;
-    transform: translateY(-1px);
-  box-shadow: 0px 8px 6px rgba(0,0,0,.19);
+  border-width: 7px;
+  border-radius: 13px;
+  border-color: #818181;
+  transform: translateY(-1px);
+  box-shadow: 0px 8px 6px rgba(0, 0, 0, .19);
 }
-.card-img-top{
-  border-radius:0%!important;
+
+.card-img-top {
+  border-radius: 0%!important;
 }
 
 /* Individual Profile View css ===============================================================================================*/
+
 .list-group {
-      border-left-style: none;
+  border-left-style: none;
 }
- img {
-   float: left;
-   margin: 0px 0px 0px 7px;
- }
- 
- .team {
-   margin-bottom: 25px;
- }
+
+img {
+  float: left;
+  margin: 0px 0px 0px 7px;
+}
+
+.team {
+  margin-bottom: 25px;
+}
 
 /* message-board=================================================================== */
 
-.card-body{
+.card-body {
   transform: translateY(-1px);
-  box-shadow: 0px 8px 6px rgba(0,0,0,.19);
+  box-shadow: 0px 8px 6px rgba(0, 0, 0, .19);
 }
-.welcome-header{
+
+.welcome-header {
   text-align-last: left;
 }
+
 .topnav {
   background-color: #9497F0;
   overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
+
 .topnav a {
   float: left;
   display: block;
@@ -377,30 +379,39 @@ img {
 }
 
 /* Change the color of links on hover */
+
 .topnav a:hover {
   background-color: #ddd;
-  color:black;
+  color: black;
 }
 
 /* Add an active class to highlight the current page */
+
 .active {
   background-color: #7C7CF8;
   color: white;
 }
 
 /* Hide the link that should open and close the topnav on small screens */
+
 .topnav .icon {
   display: none;
 }
+
 @media screen and (max-width: 600px) {
-  .topnav a:not(:first-child) {display: none;}
+  .topnav a:not(:first-child) {
+    display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;
   }
 }
+
 @media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {
+    position: relative;
+  }
   .topnav.responsive a.icon {
     position: absolute;
     right: 0;
@@ -412,71 +423,125 @@ img {
     text-align: left;
   }
 }
-.btn-light{
+
+.btn-light {
   margin-top: 9px;
   background: transparent;
   border-style: none;
   color: white;
 }
 
- h6 {
-   margin-left: 37px;
- }
- .badge-primary{
-   background-color: #7C7CF8;
- }
- .col-md-2{
+h6 {
+  margin-left: 37px;
+}
+
+.badge-primary {
+  background-color: #7C7CF8;
+}
+
+.col-md-2 {
   padding-right: 26px;
   padding-left: 0px;
-  background-color:  #9497F0;
+  background-color: #9497F0;
   margin-right: 51px;
-    margin-left: -70px;
-    margin-top: -26px;
-    margin-bottom: -71px;
+  margin-left: -70px;
+  margin-top: -26px;
+  margin-bottom: -71px;
 }
- h5{
-   text-align: center;
- }
- input.message-area{
-   margin-top: 63%;
-   width: 99%;
-   margin-left: -63px;
- }
 
- .btn-primary{
-   background-color: #9497F0;
-   border-style: none;
- }
- li{
-   list-style: none;
- }
- 
- /* Public Projects View CSS =============================================================================================== */
- #public-project-navbar-top {
-   height: 31.172px;
- }
+h5 {
+  text-align: center;
+}
 
- /* Image responsiveness wasn't working with bootstrap, not sure why. */
- /* Manually set height and width to 100% to fill parent div, will need to be fixed */
- .project img {
-   border-radius: 0;
-   margin: 0;
-   width: 100% !important;
-   height: 100% !important;
- }
+input.message-area {
+  margin-top: 63%;
+  width: 99%;
+  margin-left: -63px;
+}
 
- .project {
+.btn-primary {
+  background-color: #9497F0;
+  border-style: none;
+}
+
+li {
+  list-style: none;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+/* join chat page============================================================================================================== */
+
+.centered-form {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  background: linear-gradient(to top right, #d7d6eb 9%, #7c7cf8 100%);
+}
+
+.centered_form {
+  background: rgba(250, 250, 250, .9);
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  padding: 0 20px;
+  margin: 20px;
+  width: 230px
+}
+
+.form-field {
+  margin: 20px 0
+}
+
+.form-field>* {
+  width: 100%
+}
+.btn-primary:hover{
+  background-color: #7C7CF8;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 7px;
+  text-align: center;
+}
+
+.form-field input, .form-field select {
+  border: 1px solid #e1e1e1;
+  padding: 10px
+}
+
+/* Public Projects View CSS =============================================================================================== */
+
+#public-project-navbar-top {
+  height: 31.172px;
+}
+
+/* Image responsiveness wasn't working with bootstrap, not sure why. */
+
+/* Manually set height and width to 100% to fill parent div, will need to be fixed */
+
+.project img {
+  border-radius: 0;
+  margin: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.project {
   box-shadow: 0px 0px 1px 0px black;
- }
+}
 
- .project-img {
-   height: 300px !important;
-   background-color: #868DE8 !important;
-   padding: 0;
- }
+.project-img {
+  height: 300px !important;
+  background-color: #868DE8 !important;
+  padding: 0;
+}
 
- .project-details {
-   height: 300px !important;
-   background-color: #fff !important
- }
-
+.project-details {
+  height: 300px !important;
+  background-color: #fff !important
+}
