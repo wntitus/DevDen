@@ -1,7 +1,9 @@
 require("dotenv").config();
+
 var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
+// var moment = require("moment");
 
 var db = require("./models");
 
@@ -21,7 +23,7 @@ io.on("connection", function(socket) {
   // message from admin "welcome to the message board"
   socket.emit(
     "newMessage",
-    generateMessage("Admin", "Welcome to the devDin message board ")
+    generateMessage("Admin", "Welcome to the devDen message board ")
   );
   // broadcast call will alert every user that a new user has joined except for the user who joined
   socket.broadcast.emit(
@@ -92,5 +94,14 @@ db.sequelize.sync(syncOptions).then(function() {
     );
   });
 });
+
+// Moment.js==============================================================================================================================
+
+//var changeDate = {{createdAt}}
+//var changedTime = moment({{createdAt}}).startOf('day').fromNow();
+//console.log(changedTime);
+
+//var humanize = moment.duration(changedTime).humanize();
+// console.log(humanize);
 
 module.exports = app;
