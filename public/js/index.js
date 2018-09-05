@@ -4,6 +4,7 @@ $(document).ready(function() {
   var regBtn = $(".signup-button");
   var logLink = $(".log-in-link");
   var span = $(".close");
+  var modal = $("#settingsModal");
 
   regBtn.on("click", function() {
     regModal.css("display", "block");
