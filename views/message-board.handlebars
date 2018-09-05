@@ -27,19 +27,15 @@
                 <h1 class="welcome-header">Welcome</h1>
             </div>
             <hr class="welcome -line">
-            <div class="message-body">
-                <ol id="forum-messages"></ol>
-                <form id="message-form">
-                    <input name="message" class="message-area" type="text" placeholder="Message" />
-                    <button class="btn btn-primary" type="submit">Send</button>
-                </form>
-                {{!--
-                <button id="send-location" class="btn btn-info" type="submit">
-                    <i class="fa fa-globe" aria-hidden="true">Send</i>
-                </button> --}}
+                <div id="message-body">
+            
+                </div>
+            <form id="message-form">
+                <input name="message" class="message-area" type="text" placeholder="Message" autofocus autocomplete="off" />
+                <button class="btn btn-primary" type="submit">Send</button>
+            </form>
 
 
-            </div>
         </div>
         <div class="col-md-3">
             <div class="card" style="width: 22rem;">
@@ -76,15 +72,15 @@
                     NewsLetter
                 </div>
                 <div class="card-body">
-                    <h6 class="event-title">divDen NewsLetter Events - September 2018</h3>
+                    <h6 class="event-title">devDen NewsLetter Events - September 2018</h3>
                         <p class="card-text">Your monthly roundup of coding events in Orlando, Fl .</p>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+</script>
 <script>
     function myFunction() {
         var x = document.getElementById("myTopnav");
@@ -96,4 +92,6 @@
     }
 </script>
 <script src="/socket.io/socket.io.js"></script>
-<script src="/public/js/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+<script src="/public/js/index.js"></script> 
+<script src="/public/js/deparam.js"></script>

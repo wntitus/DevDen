@@ -25,23 +25,30 @@ $(document).ready(function() {
   };
 
   var socket = io.connect();
+  var room = "javascript";
+// 
+  // socket.on("join", function (room) {
+  //   console.log("join",room);
 
-  socket.on("connect", function() {
-    console.log("connected to server");
-  });
-  socket.on("newMessage", function(message) {
-    console.log("new message", message);
-    var li = $("<li></li>");
-    li.text(`${message.from}: ${message.text}`);
-    $("#forum-messages").append(li);
-  });
-  // socket.on("newlocationMessage", function (message) {
-  //   var li = $("<li></li>");
-  //   var anchor = $("<a target="_blank">My Current Location</a>");
-
-  //  li.text(`${message.from}: `); anchor.attr("href", message.url);
-  //   li.append(anchor); $("#forum-messages").append(li);
+  //   socket.join(room,function(){
+  //     console.log(sockets.rooms);
+  //   });
+    
   // });
+  socket.on('connect', onConnect);
+	function onConnect() {
+		console.log('connected');
+		socket.emit('join', room);
+	}
+  socket.on("newMessage", function (message) {
+    var formatTime = moment(message.createdAt).format("h:mm");
+    console.log("new message", message);
+    var h4 = $("<h4></h4>");
+    var p = $("<p></p>");
+    h4.text(`${message.from}: ${formatTime}`);
+    p.text(`${message.text}`);
+    $("#message-body").append(h4).append(p);
+  });
 
   socket.on("disconnect", function() {
     console.log("disconnected from server");
@@ -52,21 +59,9 @@ $(document).ready(function() {
     socket.emit("createMessage", {
       from: "user",
       text: $("[name=message]").val()
+    }, function () {
+      $("[name=message]").val("")
     });
   });
-  var locationBtn = $("#send-location");
-  locationBtn.on("click", function() {
-    if (!navigator.geolocation) {
-      return alert("Geolcation not supported by your browser.");
-    }
 
-    // navigator.geolocation.getCurrentPosition(function (position) {
-    //   socket.emit("createLocationMessage", {
-    //     lat: position.coords.latitude,
-    //     long: position.coords.longitude
-    //   });
-    // }, function () {
-    //   alert("Unable to get location");
-    // });
-  });
-});
+})

@@ -117,4 +117,7 @@ module.exports = function(app) {
       res.render("404");
     });
   });
+  app.get("/joinChat", function(req, res) {
+    res.render("joinChat", { layout: "bootstrap" });
+  });
 };

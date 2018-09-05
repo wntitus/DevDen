@@ -10,8 +10,6 @@ var passport = require("./config/passport");
 var db = require("./models");
 
 var generateMessage = require("./public/js/message");
-// var generateLocationMessage = require("./public/js/message");
-
 var app = express();
 var server = require("http").Server(app);
 var PORT = process.env.PORT || 3000;
@@ -22,16 +20,21 @@ var io = require("socket.io")(server);
 
 io.on("connection", function(socket) {
   console.log("new user connected");
-  // message from admin "welcome to the message board"
-  socket.emit(
-    "newMessage",
-    generateMessage("Admin", "Welcome to the devDen message board ")
-  );
-  // broadcast call will alert every user that a new user has joined except for the user who joined
-  socket.broadcast.emit(
-    "newMessage",
-    generateMessage("Admin", "New user joined")
-  );
+  room = "javascript";
+  // listening for event from the client and join the room
+  socket.on("join", function(room) {
+    console.log("join", room);
+    // room thats being joined
+    socket.join(room);
+    // emit to server to let you see message from admin "welcome to the message board"
+    io.to(room).emit(
+      "newMessage",
+      generateMessage("Admin", "Welcome to the javascript chat board ")
+    );
+    
+    // broadcast call will alert every user that a new user has joined except for the user who joined
+    io.to(room).emit("newMessage", generateMessage("Admin", "New user joined"));
+  });
   // event listener for create message=======================================================================================================================
   socket.on("createMessage", function(message, callback) {
     // making sure the event is going from client to server
@@ -39,13 +42,6 @@ io.on("connection", function(socket) {
     io.emit("newMessage", generateMessage(message.from, message.text));
     callback("this from the server");
   });
-  // server side listener for sending Geolocation
-  // socket.on("createLocationMessage", function(coords) {
-  //   io.emit(
-  //     "newLocationMessage",
-  //     generateLocationMessage("Admin", coords.lat, coords.long)
-  //   );
-  // });
   socket.on("disconnect", function() {
     console.log("user disconnected");
   });
