@@ -15,19 +15,18 @@
     <div class="public-projects-body container-fluid">
       <div class="row">
         {{#each project}}
-        <div class="col-md-5 ml-auto mr-auto mt-5 project">
-          <div class="row">
-            <div class="col-md-8 project-img">
-              <img class="img-fluid" src="{{image}}" alt="">
+          {{#each ownerId}}
+            <div class="col-md-5 ml-auto mr-auto mt-5 project">
+              <div class="row">
+                <div class="col-md-8 project-img">
+                  <img class="img-fluid" src="{{image}}" alt="">
+                </div>
+                <div class="col-md-4 project-details">
+                  {{> projects/project-info-block}}
+                </div>
+              </div>
             </div>
-            <div class="col-md-4 project-details">
-              {{> projects/project-info-block}}
-            </div>
-          </div>
-        </div>
-        {{!-- {{#if id}}
-        <div class="col-md-2"></div>
-        {{/if}} --}}
+          {{/each}}
         {{/each}}
     </div>
   </div>

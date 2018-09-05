@@ -21,16 +21,42 @@ module.exports = function(app) {
     res.render("profile", { layout: "bootstrap" });
   });
 
-  //Show Projects Page
+  //Trying to get name of owner of project and project information from one db hit
   app.get("/projects", function(req, res) {
-    db.Project.findAll().then(function(results) {
-      console.log(results[0].dataValues);
+    db.User.findAll({
+      include: [
+        {
+          model: db.Project,
+          as: "ownerId"
+        }
+      ]
+    }).then(function(results) {
+      console.log(results[0].ownerId[0].dataValues);
+      console.log(results[0].ownerId[1].dataValues);
+      // console.log(results[0].dataValues.ownerId);
       res.render("publicProjects", {
         project: results,
         layout: "bootstrap"
       });
     });
   });
+
+  //Show Projects Page
+  // app.get("/projects", function(req, res) {
+  //   db.Project.findAll().then(function(results) {
+  //     console.log(results[0].dataValues);
+  //     // db.User.findOne({
+  //     //   where: {
+  //     //     id:
+  //     //   }
+  //     // })
+  //     // console.log(results[0].dataValues);
+  //     res.render("publicProjects", {
+  //       project: results,
+  //       layout: "bootstrap"
+  //     });
+  //   });
+  // });
 
   //Show individual Project View
   app.get("/project/:id", function(req, res) {
