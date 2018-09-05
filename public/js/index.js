@@ -27,15 +27,6 @@ $(document).ready(function() {
 
   var socket = io.connect();
   var room = "javascript";
-
-  // socket.on("join", function (room) {
-  //   console.log("join",room);
-
-  //   socket.join(room,function(){
-  //     console.log(sockets.rooms);
-  //   });
-
-  // });
   socket.on("connect", onConnect);
   function onConnect() {
     console.log("connected");
