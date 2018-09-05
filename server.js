@@ -1,7 +1,11 @@
 require("dotenv").config();
+
 var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
+
+var session = require("express-session");
+var passport = require("./config/passport");
 
 var db = require("./models");
 
@@ -27,6 +31,7 @@ io.on("connection", function(socket) {
       "newMessage",
       generateMessage("Admin", "Welcome to the javascript chat board ")
     );
+    
     // broadcast call will alert every user that a new user has joined except for the user who joined
     io.to(room).emit("newMessage", generateMessage("Admin", "New user joined"));
   });
@@ -60,6 +65,12 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
 // Routes
 require("./routes/projectRoutes")(app);
 require("./routes/skillRoutes")(app);
@@ -87,5 +98,14 @@ db.sequelize.sync(syncOptions).then(function() {
     );
   });
 });
+
+// Moment.js==============================================================================================================================
+
+//var changeDate = {{createdAt}}
+//var changedTime = moment({{createdAt}}).startOf('day').fromNow();
+//console.log(changedTime);
+
+//var humanize = moment.duration(changedTime).humanize();
+// console.log(humanize);
 
 module.exports = app;

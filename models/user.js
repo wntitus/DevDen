@@ -16,11 +16,21 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     },
     image: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      defaultValue:
+        "https://www.cadcorp.com/images/uploads/product-images/cadcorp_developer_200x200.png"
     },
     userName: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    jobTitle: {
+      type: DataTypes.STRING,
+      defaultValue: "devDen Denizen"
+    },
+    phoneNumber: {
+      type: DataTypes.STRING,
+      defaultValue: "555-555-5555"
     }
   });
   User.prototype.validatePassword = function(password) {
@@ -38,7 +48,7 @@ module.exports = function(sequelize, DataTypes) {
       as: "collaboratorId",
       foreignKey: "collaboratorId"
     });
-    User.hasOne(models.Project, {
+    User.hasMany(models.Project, {
       as: "ownerId",
       foreignKey: "ownerId"
     });

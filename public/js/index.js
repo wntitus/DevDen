@@ -1,24 +1,24 @@
-$(document).ready(function () {
+$(document).ready(function() {
   var regModal = $("#signup-modal");
   var logModal = $("#login-modal");
   var regBtn = $(".signup-button");
   var logLink = $(".log-in-link");
   var span = $(".close");
 
-  regBtn.on("click", function () {
+  regBtn.on("click", function() {
     regModal.css("display", "block");
   });
 
-  logLink.on("click", function () {
+  logLink.on("click", function() {
     logModal.css("display", "block");
   });
 
-  span.on("click", function () {
+  span.on("click", function() {
     regModal.css("display", "none");
     logModal.css("display", "none");
   });
 
-  window.onclick = function (event) {
+  window.onclick = function(event) {
     if (event.target === modal) {
       regModal.css("display", "none");
     }
@@ -50,11 +50,11 @@ $(document).ready(function () {
     $("#message-body").append(h4).append(p);
   });
 
-  socket.on("disconnect", function () {
+  socket.on("disconnect", function() {
     console.log("disconnected from server");
   });
 
-  $("#message-form").on("submit", function (event) {
+  $("#message-form").on("submit", function(event) {
     event.preventDefault();
     socket.emit("createMessage", {
       from: "user",

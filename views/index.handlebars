@@ -12,7 +12,7 @@
     <div class = 'landing-body'>
         <h2 class = 'pull-text'>Sometimes it can be a challenge to find collaborators for a project. DevDen is here to help.</h2>
 
-        <button type = 'button' class = 'project-view-button'>View Public Projects</button>
+        <a href="/projects"><button type = 'button' class = 'project-view-button'>View Public Projects</button></a>
         <button type = 'button' class = 'signup-button'>Sign Up</button>
     </div>
 
@@ -23,14 +23,14 @@
             <span class = 'close'>&times;</span>
                 <h2>Registration</h2>
             </div>
-            <form>
+            <form action = "/register" method = "POST">
             <div class = 'modal-body'>
                 <label for = 'email'>Email</label><br>
                     <input type = 'text' placeholder = 'Enter Your E-mail' name = 'email' class = 'register-input'required><br>
                 <label for = 'username'>Username</label><br>
-                    <input type = 'text' placeholder = 'Enter Username' name = 'username' class = 'register-input'required><br>
+                    <input type = 'text' placeholder = 'Enter Username' name = 'userName' class = 'register-input'required><br>
                 <label for = 'pwrd'>Password</label><br>
-                    <input type = 'password' placeholder = 'Enter Password' name = 'pwrd' class = 'register-input' id = 'password'required><br>
+                    <input type = 'password' placeholder = 'Enter Password' name = 'password' class = 'register-input' id = 'password'required><br>
                 <button type = 'submit' class = 'register-button'>Register</button><br>
             </div>
             </form>

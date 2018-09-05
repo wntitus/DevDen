@@ -8,13 +8,17 @@ module.exports = function(app) {
     res.render("index", { layout: "main" });
   });
 
-  app.get("/profile_test", function(req, res) {
-    res.render("profile", { layout: "bootstrap" });
+  app.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/");
   });
 
-  //Login Page
-  app.get("/login", function(req, res) {
-    res.render("?");
+  app.get("/create_project", function(req, res) {
+    res.render("projectCreate", { layout: "main" });
+  });
+
+  app.get("/profile_test", function(req, res) {
+    res.render("profile", { layout: "bootstrap" });
   });
 
   //Show Projects Page
@@ -34,10 +38,12 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       },
+      //using 'include' to join Project and Collaborators tables
       include: [
         {
           model: db.Collaborator,
           as: "projectCollaborator",
+          //using 'include' to join Users table as well.
           include: [
             {
               model: db.User
@@ -46,26 +52,28 @@ module.exports = function(app) {
         }
       ]
     }).then(function(results) {
-      //Defining empty array to hold each collaborator
-      var collaborators = [];
-      //Looping through each collaborator
-      for (var i = 0; i < results.projectCollaborator.length; i++) {
-        //pushing an empty object on each iteration, used to store collaborator information
-        collaborators.push({});
-        //Setting name and image values to the collaborator object
-        collaborators[i].name = results.projectCollaborator[i].User.userName;
-        collaborators[i].img = results.projectCollaborator[i].User.image;
-      }
-      // console.log(collaborators);
-      res.render(
-        "projectView",
-
-        {
-          project: results.dataValues,
-          collaborator: collaborators,
-          layout: "bootstrap"
+      //setting the returned value from the projects/collaborators join query to hbsCollab
+      var hbsCollab = results.projectCollaborator;
+      //Querying the Users table to find the owner of the project
+      db.User.findOne({
+        where: {
+          id: results.dataValues.ownerId
         }
-      );
+      }).then(function(UserRes) {
+        //Setting the returned data from the Users table query to ownerResult
+        var ownerResult = UserRes.dataValues;
+        console.log(ownerResult);
+        res.render(
+          "projectView",
+
+          {
+            owner: ownerResult,
+            project: results.dataValues,
+            collaborator: hbsCollab,
+            layout: "bootstrap"
+          }
+        );
+      });
     });
   });
 
@@ -74,10 +82,21 @@ module.exports = function(app) {
     db.User.findOne({
       where: {
         id: req.params.id
-      }
+      },
+      include: [
+        {
+          model: db.Project,
+          as: "ownerId"
+        }
+      ]
     }).then(function(results) {
-      console.log(results.dataValues);
+      var hbsOwnerId = results.ownerId;
+      console.log(hbsOwnerId);
+      // console.log(hbsOwnerId.dataValues.image);
+      // console.log(results.dataValues.ownerId[0].dataValues.projectName);
+
       res.render("profile", {
+        project: hbsOwnerId,
         user: results.dataValues,
         layout: "bootstrap"
       });
