@@ -1,11 +1,9 @@
-
 <div class="topnav" id="myTopnav">
     <h2 class="title">Message-Board</h2>
     <a href="/user/1" class="active">Home</a>
     <a href="#news">News</a>
     <a href="#contact">FAQ</a>
     <a href="#about">About</a>
-    <button type="button" class="btn btn-light">New Discussion</button>
 
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
@@ -27,13 +25,17 @@
                 <h1 class="welcome-header">Welcome</h1>
             </div>
             <hr class="welcome -line">
-                <div id="message-body">
+
+            <div id="message-body">
+
+
+            </div>
             
-                </div>
             <form id="message-form">
                 <input name="message" class="message-area" type="text" placeholder="Message" autofocus autocomplete="off" />
                 <button class="btn btn-primary" type="submit">Send</button>
             </form>
+
 
 
         </div>
@@ -93,5 +95,5 @@
 </script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-<script src="/public/js/index.js"></script> 
+<script src="/public/js/index.js"></script>
 <script src="/public/js/deparam.js"></script>

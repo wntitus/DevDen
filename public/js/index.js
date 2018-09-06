@@ -27,6 +27,7 @@ $(document).ready(function() {
 
   var socket = io.connect();
   var room = "javascript";
+
   socket.on("connect", onConnect);
   function onConnect() {
     console.log("connected");
