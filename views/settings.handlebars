@@ -20,13 +20,13 @@
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">devDen</span>
          </div>
-  <input type="text" class="form-control" placeholder="Project Name" aria-label="Username" aria-describedby="basic-addon1"> 
+  <input type="text" id="projectNameInput" class="form-control" placeholder="Project Name" aria-label="Username" aria-describedby="basic-addon1"> 
       </div> 
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1">devDen</span>
          </div>
-<input type="text" class="form-control" placeholder="Project Decscription" aria-label="Username" aria-describedby="basic-addon1"> 
+<input type="text" id="projectDescriptionInput" class="form-control" placeholder="Project Decscription" aria-label="Username" aria-describedby="basic-addon1"> 
       </div> 
         <div class="input-group mb-3">
           <div class="input-group-prepend">
@@ -35,8 +35,8 @@
   <input type="text" class="form-control" placeholder="Collaborator" aria-label="Username" aria-describedby="basic-addon1"> 
       </div> 
       <br><hr>
-      <button type="button"  class="btn btn-dark">UPDATE</button>
-      <button type="button"  class="btn btn-dark">DELETE</button>
+      <button type="button"  class="btn btn-dark" id="updateProject">UPDATE</button>
+      <button type="button"  class="btn btn-dark" id="deleteProject">DELETE</button>
 
      </div>
      
@@ -56,4 +56,34 @@
         document.getElementById("main").style.marginLeft = "0";
         document.body.style.backgroundColor = "#D7D6EB";
     }
+</script>
+<script>
+        var queryURL = "/api/projects/" + {{project.id}};
+    $("#updateProject").click(function() {
+        var updatedProject = {
+            projectName: $("#projectNameInput").val().trim(),
+            projectDescription: $("#projectDescriptionInput").val().trim()
+        };
+        updateProject(updatedProject);
+
+        function updateProject(project) {
+            $.ajax({
+                method: "PUT",
+                url: queryURL,
+                data: project
+            }).then(function() {
+                window.location.href = "/project/" + {{project.id}};
+            })
+        }
+    });
+
+    $("#deleteProject").click(function() {
+        console.log("Delete clicked");
+        $.ajax({
+            method: "DELETE",
+            url: queryURL
+        }).then(function() {
+            window.location.href = "/projects";
+        });
+    });
 </script>
