@@ -1,13 +1,11 @@
-# Grp-Project-2
+# Collaboration Nation
 
 # DevDen
 
 Our project is DevDen! We focus on helping developers find and seek other developers for a project collaboration. As a user you're able to 
 sign in and rate your proficency in any and all areas you specialize in. Other developers can ask you to join their project based of off your proficency or accolades that you recieve, or you can ask to join another developers project you feel interested in. Accolades are giving to a user by other users who they have collaborated with you before. The more projects you join the more accolades you can require. 
 
-## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ## Prerequisites
 
@@ -32,7 +30,7 @@ require("momentsjs");
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+[DevDen](https://vast-hamlet-76266.herokuapp.com/) - Collaboration Made Simple
 
 ## Built With
 
