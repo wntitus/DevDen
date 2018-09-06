@@ -1,5 +1,5 @@
 var db = require("../models");
-
+var moment = require("moment");
 // var path = require("path");
 
 module.exports = function(app) {
@@ -24,7 +24,12 @@ module.exports = function(app) {
   //Show Projects Page
   app.get("/projects", function(req, res) {
     db.Project.findAll().then(function(results) {
-      console.log(results[0].dataValues);
+      for (var i = 0; i < results.length; i++) {
+        var timetime = moment(results[i].createdAt)
+          .startOf("day")
+          .fromNow();
+        results[i].timeAdded = timetime;
+      }
       res.render("publicProjects", {
         project: results,
         layout: "bootstrap"
@@ -63,6 +68,10 @@ module.exports = function(app) {
         //Setting the returned data from the Users table query to ownerResult
         var ownerResult = UserRes.dataValues;
         console.log(ownerResult);
+        // var timetime = moment(results.dataValues.createdAt)
+        //   .startOf("day")
+        //   .fromNow();
+        // results.timeAdded = timetime;
         res.render(
           "projectView",
 
@@ -91,7 +100,7 @@ module.exports = function(app) {
       ]
     }).then(function(results) {
       var hbsOwnerId = results.ownerId;
-      console.log(hbsOwnerId);
+      // console.log(hbsOwnerId);
       // console.log(hbsOwnerId.dataValues.image);
       // console.log(results.dataValues.ownerId[0].dataValues.projectName);
 
@@ -119,5 +128,50 @@ module.exports = function(app) {
   });
   app.get("/joinChat", function(req, res) {
     res.render("joinChat", { layout: "bootstrap" });
+  });
+
+  //Settings Page
+  app.get("/settings/:id", function(req, res) {
+    db.Project.findOne({
+      where: {
+        id: req.params.id
+      },
+      //using 'include' to join Project and Collaborators tables
+      include: [
+        {
+          model: db.Collaborator,
+          as: "projectCollaborator",
+          //using 'include' to join Users table as well.
+          include: [
+            {
+              model: db.User
+            }
+          ]
+        }
+      ]
+    }).then(function(results) {
+      //setting the returned value from the projects/collaborators join query to hbsCollab
+      var hbsCollab = results.projectCollaborator;
+      //Querying the Users table to find the owner of the project
+      db.User.findOne({
+        where: {
+          id: results.dataValues.ownerId
+        }
+      }).then(function(UserRes) {
+        //Setting the returned data from the Users table query to ownerResult
+        var ownerResult = UserRes.dataValues;
+        console.log(ownerResult);
+        res.render(
+          "settings",
+
+          {
+            owner: ownerResult,
+            project: results.dataValues,
+            collaborator: hbsCollab,
+            layout: "bootstrap"
+          }
+        );
+      });
+    });
   });
 };

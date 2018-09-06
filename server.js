@@ -26,10 +26,10 @@ io.on("connection", function(socket) {
     console.log("join", room);
     // room thats being joined
     socket.join(room);
-    // emit to server to let you see message from admin "welcome to the message board"
   });
   io.to(room).emit(
     "newMessage",
+    // emit to server to let you see message from admin "welcome to the message board"
     generateMessage("Admin", "Welcome to the javascript chat board ")
   );
   // / broadcast call will alert every user that a new user has joined except for the user who joined
