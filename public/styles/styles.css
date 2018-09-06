@@ -479,7 +479,7 @@ h6 {
   margin-right: 51px;
   margin-left: -70px;
   margin-top: -26px;
-  margin-bottom: -71px;
+  margin-bottom: 1px;
 }
 
 h5 {
@@ -487,9 +487,10 @@ h5 {
 }
 
 input.message-area {
-  margin-top: 35%;
-    width: 95%;
-    margin-left: -51px;
+  margin-top: 1%;
+    width: 84%;
+    margin-left: 35px;
+    position: relative;
 }
 
 .btn-primary {
@@ -506,7 +507,9 @@ h4 {
 }
 #message-body{
   position: relative;
-  
+  width: 643px;
+  height: 445px;
+  overflow-x: scroll;
 
 }
 /* join chat page============================================================================================================== */
