@@ -17,11 +17,9 @@ var PORT = process.env.PORT || 3000;
 // socket.io Config=========================================================================================================================
 // io(<port>) will create a http server
 var io = require("socket.io")(server);
-
 io.on("connection", function(socket) {
   console.log("new user connected");
   room = "javascript";
-  // / broadcast call will alert every user that a new user has joined except for the user who joined
 
   // listening for event from the client and join the room
   socket.on("join", function(room) {
@@ -29,6 +27,7 @@ io.on("connection", function(socket) {
     // room thats being joined
     socket.join(room);
   });
+  // / broadcast call will alert every user that a new user has joined except for the user who joined
   socket
     .to(room)
     .emit("newMessage", generateMessage("Admin", " New user has joined."));
@@ -46,6 +45,9 @@ io.on("connection", function(socket) {
   });
   socket.on("disconnect", function() {
     console.log("user disconnected");
+    socket
+      .to(room)
+      .emit("newMessage", generateMessage("Admin", "User has left chat."));
   });
 });
 
