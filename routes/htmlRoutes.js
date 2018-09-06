@@ -1,5 +1,5 @@
 var db = require("../models");
-
+var moment = require("moment");
 // var path = require("path");
 
 module.exports = function(app) {
@@ -24,7 +24,12 @@ module.exports = function(app) {
   //Show Projects Page
   app.get("/projects", function(req, res) {
     db.Project.findAll().then(function(results) {
-      console.log(results[0].dataValues);
+      for (var i = 0; i < results.length; i++) {
+        var timetime = moment(results[i].createdAt)
+          .startOf("day")
+          .fromNow();
+        results[i].timeAdded = timetime;
+      }
       res.render("publicProjects", {
         project: results,
         layout: "bootstrap"
@@ -63,6 +68,10 @@ module.exports = function(app) {
         //Setting the returned data from the Users table query to ownerResult
         var ownerResult = UserRes.dataValues;
         console.log(ownerResult);
+        // var timetime = moment(results.dataValues.createdAt)
+        //   .startOf("day")
+        //   .fromNow();
+        // results.timeAdded = timetime;
         res.render(
           "projectView",
 
