@@ -27,13 +27,15 @@ io.on("connection", function(socket) {
     // room thats being joined
     socket.join(room);
     // emit to server to let you see message from admin "welcome to the message board"
-    io.to(room).emit(
-      "newMessage",
-      generateMessage("Admin", "Welcome to the javascript chat board ")
-    );
   });
+  io.to(room).emit(
+    "newMessage",
+    generateMessage("Admin", "Welcome to the javascript chat board ")
+  );
   // / broadcast call will alert every user that a new user has joined except for the user who joined
-  io.to(room).emit("newMessage", generateMessage("Admin", "New user joined"));
+  socket.broadcast
+    .to(room)
+    .emit("newMessage", generateMessage("Admin", " New user has joined."));
   // event listener for create message=======================================================================================================================
   socket.on("createMessage", function(message, callback) {
     // making sure the event is going from client to server
